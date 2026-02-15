@@ -15,7 +15,6 @@ node_modules/
 dist/
 *.tsbuildinfo
 test-results/
-package-lock.json
 bun.lock
 
 # Environment
