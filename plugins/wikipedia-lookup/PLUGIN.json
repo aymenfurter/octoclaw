@@ -1,0 +1,20 @@
+{
+  "id": "wikipedia-lookup",
+  "name": "Wikipedia Lookup",
+  "description": "Search and retrieve information from Wikipedia. Install the 'wikipedia' Python package and query articles, summaries, and references on any topic.",
+  "version": "1.0.0",
+  "author": "Community",
+  "homepage": "https://github.com/goldsmith/Wikipedia",
+  "icon": "book-open",
+  "default_enabled": false,
+  "setup_skill": "setup-wikipedia",
+  "setup_message": "The wikipedia Python package needs to be installed. The copilot agent will handle this automatically.",
+  "skills": [
+    "wiki-search",
+    "wiki-summary",
+    "wiki-deep-dive"
+  ],
+  "dependencies": {
+    "pip": ["wikipedia"]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "id": "foundry-agents",
+  "name": "Microsoft Foundry Agents",
+  "description": "Provision a Microsoft Foundry resource, deploy models, and create ad-hoc agents using the new Foundry v2 Responses API. Includes a code interpreter agent for data analysis and visualization, and a general-purpose agent builder.",
+  "version": "1.0.0",
+  "author": "Microsoft",
+  "homepage": "https://learn.microsoft.com/azure/ai-foundry/agents",
+  "icon": "cloud",
+  "default_enabled": false,
+  "setup_skill": "setup-foundry",
+  "setup_message": "Azure CLI must be installed and authenticated, and a Foundry resource with a model deployment will be provisioned. The copilot agent will walk you through the process.",
+  "skills": [
+    "foundry-code-interpreter",
+    "foundry-agent-chat"
+  ],
+  "dependencies": {
+    "cli": ["az"],
+    "pip": ["azure-ai-projects", "azure-identity", "openai"]
+  }
+}

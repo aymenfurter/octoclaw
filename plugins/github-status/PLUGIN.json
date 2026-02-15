@@ -1,0 +1,18 @@
+{
+  "id": "github-status",
+  "name": "GitHub Status Monitor",
+  "description": "Monitor GitHub platform health and incidents via the public githubstatus.com API. Check service status, track active incidents, and get alerts on upcoming scheduled maintenance.",
+  "version": "1.0.0",
+  "author": "Community",
+  "homepage": "https://www.githubstatus.com",
+  "icon": "github",
+  "default_enabled": false,
+  "skills": [
+    "gh-status-check",
+    "gh-incidents",
+    "gh-maintenance"
+  ],
+  "dependencies": {
+    "cli": ["curl"]
+  }
+}

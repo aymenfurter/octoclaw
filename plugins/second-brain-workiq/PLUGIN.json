@@ -1,0 +1,21 @@
+{
+  "id": "second-brain-workiq",
+  "name": "Second Brain (Using WorkIQ)",
+  "description": "Transform your daily workflow with structured note-taking, meeting management, and productivity analytics powered by Microsoft 365 data via WorkIQ. Includes daily rollover, end-of-day reviews, weekly summaries, and monthly retrospectives.",
+  "version": "1.0.0",
+  "author": "Microsoft",
+  "homepage": "https://github.com/microsoft/work-iq-mcp",
+  "icon": "brain",
+  "default_enabled": false,
+  "setup_skill": "setup-workiq",
+  "setup_message": "The WorkIQ CLI needs to be installed and authenticated. The copilot agent will walk you through the process.",
+  "skills": [
+    "daily-rollover",
+    "end-day",
+    "weekly-review",
+    "monthly-review"
+  ],
+  "dependencies": {
+    "cli": ["workiq"]
+  }
+}
