@@ -3,7 +3,7 @@
   "name": "Second Brain (Using WorkIQ)",
   "description": "Transform your daily workflow with structured note-taking, meeting management, and productivity analytics powered by Microsoft 365 data via WorkIQ. Includes daily rollover, end-of-day reviews, weekly summaries, and monthly retrospectives.",
   "version": "1.0.0",
-  "author": "Microsoft",
+  "author": "Community",
   "homepage": "https://github.com/microsoft/work-iq-mcp",
   "icon": "brain",
   "default_enabled": false,
