@@ -1,4 +1,4 @@
-<p align="center">
+<p align="center">  
   <img src="assets/logo.png" alt="Octoclaw" width="120" />
 </p>
 
@@ -41,6 +41,13 @@ Octoclaw is an autonomous AI copilot built on the **GitHub Copilot SDK**. It giv
 
 <p align="center">
   <img src="docs/static/screenshots/architecture.png" alt="Architecture" width="700" />
+</p>
+
+## Intro
+<p align="center">
+  
+https://github.com/user-attachments/assets/668ace7d-c07c-4bfd-92bd-e0d182d44343
+
 </p>
 
 ## Web Dashboard
