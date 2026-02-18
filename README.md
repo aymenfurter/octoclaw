@@ -14,6 +14,7 @@
   <a href="https://nodejs.org/"><img src="https://img.shields.io/badge/node.js-20+-339933.svg?logo=nodedotjs&logoColor=white" alt="Node.js 20+" /></a>
   <a href="https://github.com/features/copilot"><img src="https://img.shields.io/badge/GitHub%20Copilot%20SDK-8957e5.svg?logo=github&logoColor=white" alt="GitHub Copilot SDK" /></a>
   <a href="Dockerfile"><img src="https://img.shields.io/badge/docker-ready-2496ED.svg?logo=docker&logoColor=white" alt="Docker" /></a>
+  <a href="https://aymenfurter.github.io/octoclaw/"><img src="https://img.shields.io/badge/docs-octoclaw.dev-blue.svg?logo=readthedocs&logoColor=white" alt="Documentation" /></a>
 </p>
 
 ---
@@ -69,6 +70,8 @@ cd octoclaw
 ```
 
 The TUI walks you through setup, configuration, and deployment. Run locally or deploy to Azure Container Apps.
+
+For full setup instructions, configuration reference, and feature guides, see the **[Documentation](https://aymenfurter.github.io/octoclaw/)**.
 
 ## Prerequisites
 
