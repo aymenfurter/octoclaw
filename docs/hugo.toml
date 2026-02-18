@@ -1,8 +1,9 @@
-baseURL       = "https://octoclaw.dev/"
-languageCode  = "en-us"
-title         = "Octoclaw Docs"
-theme         = "octoclaw"
-enableGitInfo = true
+baseURL        = "https://aymenfurter.github.io/octoclaw/"
+languageCode   = "en-us"
+title          = "Octoclaw Docs"
+theme          = "octoclaw"
+enableGitInfo  = true
+canonifyURLs   = true
 
 [params]
   description = "Autonomous AI copilot powered by GitHub Copilot SDK"

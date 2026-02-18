@@ -39,7 +39,7 @@ Octoclaw is an autonomous AI copilot built on the **GitHub Copilot SDK**. It giv
 ## Architecture
 
 <p align="center">
-  <img src="docs/screenshots/architecture.png" alt="Architecture" width="700" />
+  <img src="docs/static/screenshots/architecture.png" alt="Architecture" width="700" />
 </p>
 
 ## Web Dashboard

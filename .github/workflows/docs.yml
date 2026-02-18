@@ -37,7 +37,7 @@ jobs:
 
       - name: Build
         working-directory: docs
-        run: hugo --minify --baseURL "${{ steps.pages.outputs.base_url || 'https://octoclaw.dev/' }}"
+        run: hugo --minify --baseURL "${{ steps.pages.outputs.base_url }}"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
