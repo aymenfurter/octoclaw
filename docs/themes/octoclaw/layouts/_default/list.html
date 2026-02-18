@@ -1,0 +1,22 @@
+{{ define "main" }}
+<div class="layout">
+  {{ partial "sidebar.html" . }}
+  <main class="content">
+    <article class="prose">
+      <h1>{{ .Title }}</h1>
+      {{ .Content }}
+      {{ if .Pages }}
+      <div class="subpage-grid">
+        {{ range .Pages }}
+        <a href="{{ .RelPermalink }}" class="subpage-card">
+          <span class="subpage-card-title">{{ .Title }}</span>
+          {{ with .Description }}<span class="subpage-card-desc">{{ . }}</span>{{ end }}
+          <span class="subpage-card-arrow">&rarr;</span>
+        </a>
+        {{ end }}
+      </div>
+      {{ end }}
+    </article>
+  </main>
+</div>
+{{ end }}

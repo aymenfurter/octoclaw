@@ -1,0 +1,76 @@
+<aside class="sidebar">
+  {{ $currentPage := . }}
+
+  {{/* Getting Started */}}
+  <div class="sidebar__section">
+    <div class="sidebar__heading">Getting Started</div>
+    <a href="{{ "getting-started/" | relURL }}" class="sidebar__link{{ if eq .RelPermalink "/getting-started/" }} sidebar__link--active{{ end }}">Overview</a>
+    <a href="{{ "getting-started/quickstart/" | relURL }}" class="sidebar__link sidebar__link--child{{ if eq .RelPermalink "/getting-started/quickstart/" }} sidebar__link--active{{ end }}">Quickstart</a>
+    <a href="{{ "getting-started/prerequisites/" | relURL }}" class="sidebar__link sidebar__link--child{{ if eq .RelPermalink "/getting-started/prerequisites/" }} sidebar__link--active{{ end }}">Prerequisites</a>
+    <a href="{{ "getting-started/setup-wizard/" | relURL }}" class="sidebar__link sidebar__link--child{{ if eq .RelPermalink "/getting-started/setup-wizard/" }} sidebar__link--active{{ end }}">Setup Wizard</a>
+  </div>
+
+  {{/* Architecture */}}
+  <div class="sidebar__section">
+    <div class="sidebar__heading">Architecture</div>
+    <a href="{{ "architecture/" | relURL }}" class="sidebar__link{{ if eq .RelPermalink "/architecture/" }} sidebar__link--active{{ end }}">Overview</a>
+    <a href="{{ "architecture/agent-core/" | relURL }}" class="sidebar__link sidebar__link--child{{ if eq .RelPermalink "/architecture/agent-core/" }} sidebar__link--active{{ end }}">Agent Core</a>
+    <a href="{{ "architecture/server/" | relURL }}" class="sidebar__link sidebar__link--child{{ if eq .RelPermalink "/architecture/server/" }} sidebar__link--active{{ end }}">Server & Middleware</a>
+    <a href="{{ "architecture/state/" | relURL }}" class="sidebar__link sidebar__link--child{{ if eq .RelPermalink "/architecture/state/" }} sidebar__link--active{{ end }}">State Management</a>
+    <a href="{{ "architecture/services/" | relURL }}" class="sidebar__link sidebar__link--child{{ if eq .RelPermalink "/architecture/services/" }} sidebar__link--active{{ end }}">Services Layer</a>
+  </div>
+
+  {{/* Configuration */}}
+  <div class="sidebar__section">
+    <div class="sidebar__heading">Configuration</div>
+    <a href="{{ "configuration/" | relURL }}" class="sidebar__link{{ if eq .RelPermalink "/configuration/" }} sidebar__link--active{{ end }}">Environment Variables</a>
+    <a href="{{ "configuration/keyvault/" | relURL }}" class="sidebar__link sidebar__link--child{{ if eq .RelPermalink "/configuration/keyvault/" }} sidebar__link--active{{ end }}">Key Vault Integration</a>
+    <a href="{{ "configuration/security/" | relURL }}" class="sidebar__link sidebar__link--child{{ if eq .RelPermalink "/configuration/security/" }} sidebar__link--active{{ end }}">Security & Auth</a>
+  </div>
+
+  {{/* Features */}}
+  <div class="sidebar__section">
+    <div class="sidebar__heading">Features</div>
+    <a href="{{ "features/messaging/" | relURL }}" class="sidebar__link{{ if eq .RelPermalink "/features/messaging/" }} sidebar__link--active{{ end }}">Messaging & Bot</a>
+    <a href="{{ "features/voice/" | relURL }}" class="sidebar__link{{ if eq .RelPermalink "/features/voice/" }} sidebar__link--active{{ end }}">Realtime Voice</a>
+    <a href="{{ "features/scheduler/" | relURL }}" class="sidebar__link{{ if eq .RelPermalink "/features/scheduler/" }} sidebar__link--active{{ end }}">Scheduler & Proactive</a>
+    <a href="{{ "features/media/" | relURL }}" class="sidebar__link{{ if eq .RelPermalink "/features/media/" }} sidebar__link--active{{ end }}">Media Handling</a>
+    <a href="{{ "features/sandbox/" | relURL }}" class="sidebar__link{{ if eq .RelPermalink "/features/sandbox/" }} sidebar__link--active{{ end }}">Sandbox Execution</a>
+    <a href="{{ "features/memory/" | relURL }}" class="sidebar__link{{ if eq .RelPermalink "/features/memory/" }} sidebar__link--active{{ end }}">Memory System</a>
+    <a href="{{ "features/commands/" | relURL }}" class="sidebar__link{{ if eq .RelPermalink "/features/commands/" }} sidebar__link--active{{ end }}">Slash Commands</a>
+  </div>
+
+  {{/* Plugins & MCP */}}
+  <div class="sidebar__section">
+    <div class="sidebar__heading">Plugins & MCP</div>
+    <a href="{{ "plugins/" | relURL }}" class="sidebar__link{{ if eq .RelPermalink "/plugins/" }} sidebar__link--active{{ end }}">Overview</a>
+    <a href="{{ "plugins/mcp-servers/" | relURL }}" class="sidebar__link sidebar__link--child{{ if eq .RelPermalink "/plugins/mcp-servers/" }} sidebar__link--active{{ end }}">MCP Servers</a>
+    <a href="{{ "plugins/creating-plugins/" | relURL }}" class="sidebar__link sidebar__link--child{{ if eq .RelPermalink "/plugins/creating-plugins/" }} sidebar__link--active{{ end }}">Creating Plugins</a>
+    <a href="{{ "plugins/bundled/" | relURL }}" class="sidebar__link sidebar__link--child{{ if eq .RelPermalink "/plugins/bundled/" }} sidebar__link--active{{ end }}">Bundled Plugins</a>
+  </div>
+
+  {{/* Skills */}}
+  <div class="sidebar__section">
+    <div class="sidebar__heading">Skills</div>
+    <a href="{{ "skills/" | relURL }}" class="sidebar__link{{ if eq .RelPermalink "/skills/" }} sidebar__link--active{{ end }}">Overview</a>
+    <a href="{{ "skills/creating-skills/" | relURL }}" class="sidebar__link sidebar__link--child{{ if eq .RelPermalink "/skills/creating-skills/" }} sidebar__link--active{{ end }}">Creating Skills</a>
+    <a href="{{ "skills/marketplace/" | relURL }}" class="sidebar__link sidebar__link--child{{ if eq .RelPermalink "/skills/marketplace/" }} sidebar__link--active{{ end }}">Marketplace</a>
+    <a href="{{ "skills/builtin/" | relURL }}" class="sidebar__link sidebar__link--child{{ if eq .RelPermalink "/skills/builtin/" }} sidebar__link--active{{ end }}">Built-in Skills</a>
+  </div>
+
+  {{/* API */}}
+  <div class="sidebar__section">
+    <div class="sidebar__heading">API Reference</div>
+    <a href="{{ "api/" | relURL }}" class="sidebar__link{{ if eq .RelPermalink "/api/" }} sidebar__link--active{{ end }}">Endpoints</a>
+    <a href="{{ "api/websocket/" | relURL }}" class="sidebar__link sidebar__link--child{{ if eq .RelPermalink "/api/websocket/" }} sidebar__link--active{{ end }}">WebSocket Chat</a>
+    <a href="{{ "api/rest/" | relURL }}" class="sidebar__link sidebar__link--child{{ if eq .RelPermalink "/api/rest/" }} sidebar__link--active{{ end }}">REST API</a>
+  </div>
+
+  {{/* Deployment */}}
+  <div class="sidebar__section">
+    <div class="sidebar__heading">Deployment</div>
+    <a href="{{ "deployment/" | relURL }}" class="sidebar__link{{ if eq .RelPermalink "/deployment/" }} sidebar__link--active{{ end }}">Overview</a>
+    <a href="{{ "deployment/docker/" | relURL }}" class="sidebar__link sidebar__link--child{{ if eq .RelPermalink "/deployment/docker/" }} sidebar__link--active{{ end }}">Docker</a>
+    <a href="{{ "deployment/azure/" | relURL }}" class="sidebar__link sidebar__link--child{{ if eq .RelPermalink "/deployment/azure/" }} sidebar__link--active{{ end }}">Azure</a>
+  </div>
+</aside>

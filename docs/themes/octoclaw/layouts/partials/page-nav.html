@@ -1,0 +1,28 @@
+{{/* Page navigation: previous / next links */}}
+{{ $pages := .CurrentSection.Pages }}
+{{ $index := 0 }}
+{{ range $i, $p := $pages }}
+  {{ if eq $p.RelPermalink $.RelPermalink }}{{ $index = $i }}{{ end }}
+{{ end }}
+
+{{ $prev := false }}
+{{ $next := false }}
+{{ if gt $index 0 }}{{ $prev = index $pages (sub $index 1) }}{{ end }}
+{{ if lt (add $index 1) (len $pages) }}{{ $next = index $pages (add $index 1) }}{{ end }}
+
+{{ if or $prev $next }}
+<nav class="page-nav">
+  {{ if $prev }}
+  <a href="{{ $prev.RelPermalink }}" class="page-nav__link">
+    <span class="page-nav__label">&larr; Previous</span>
+    <span class="page-nav__title">{{ $prev.Title }}</span>
+  </a>
+  {{ else }}<div></div>{{ end }}
+  {{ if $next }}
+  <a href="{{ $next.RelPermalink }}" class="page-nav__link page-nav__link--next">
+    <span class="page-nav__label">Next &rarr;</span>
+    <span class="page-nav__title">{{ $next.Title }}</span>
+  </a>
+  {{ else }}<div></div>{{ end }}
+</nav>
+{{ end }}

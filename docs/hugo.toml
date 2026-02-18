@@ -1,0 +1,63 @@
+baseURL       = "https://octoclaw.dev/"
+languageCode  = "en-us"
+title         = "Octoclaw Docs"
+theme         = "octoclaw"
+enableGitInfo = true
+
+[params]
+  description = "Autonomous AI copilot powered by GitHub Copilot SDK"
+  version     = "4.0.0"
+  github      = "https://github.com/aymenfurter/octoclaw"
+
+[markup]
+  [markup.highlight]
+    style       = "monokai"
+    lineNos     = false
+    noClasses   = true
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+    [markup.goldmark.parser.attribute]
+      block = true
+
+[menu]
+  [[menu.main]]
+    identifier = "getting-started"
+    name       = "Getting Started"
+    url        = "/getting-started/"
+    weight     = 10
+  [[menu.main]]
+    identifier = "architecture"
+    name       = "Architecture"
+    url        = "/architecture/"
+    weight     = 20
+  [[menu.main]]
+    identifier = "configuration"
+    name       = "Configuration"
+    url        = "/configuration/"
+    weight     = 30
+  [[menu.main]]
+    identifier = "features"
+    name       = "Features"
+    url        = "/features/"
+    weight     = 40
+  [[menu.main]]
+    identifier = "plugins"
+    name       = "Plugins & MCP"
+    url        = "/plugins/"
+    weight     = 50
+  [[menu.main]]
+    identifier = "skills"
+    name       = "Skills"
+    url        = "/skills/"
+    weight     = 60
+  [[menu.main]]
+    identifier = "api"
+    name       = "API Reference"
+    url        = "/api/"
+    weight     = 70
+  [[menu.main]]
+    identifier = "deployment"
+    name       = "Deployment"
+    url        = "/deployment/"
+    weight     = 80

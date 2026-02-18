@@ -501,11 +501,10 @@ class AppFactory:
     # ------------------------------------------------------------------
 
     def _make_notify(self) -> Callable[[str], Awaitable[bool]]:
-        adapter = self._adapter
-        conv_store = self._conv_store
-
         async def notify(message: str) -> bool:
-            return await send_proactive_message(adapter, conv_store, cfg.bot_app_id, message)
+            return await send_proactive_message(
+                self._adapter, self._conv_store, cfg.bot_app_id, message,
+            )
 
         return notify
 
@@ -521,6 +520,8 @@ class AppFactory:
 
     async def _on_startup(self, app: web.Application) -> None:
         from ..proactive_loop import proactive_delivery_loop
+
+        self._rebuild_adapter()
 
         app["scheduler_task"] = asyncio.create_task(scheduler_loop())
         app["proactive_task"] = asyncio.create_task(
