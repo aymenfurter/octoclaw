@@ -20,6 +20,12 @@
     <a href="{{ "architecture/services/" | relURL }}" class="sidebar__link sidebar__link--child{{ if eq .RelPermalink "/architecture/services/" }} sidebar__link--active{{ end }}">Services Layer</a>
   </div>
 
+  {{/* Responsible AI */}}
+  <div class="sidebar__section">
+    <div class="sidebar__heading">Responsible AI</div>
+    <a href="{{ "responsible-ai/" | relURL }}" class="sidebar__link{{ if eq .RelPermalink "/responsible-ai/" }} sidebar__link--active{{ end }}">Security, Governance & RAI</a>
+  </div>
+
   {{/* Configuration */}}
   <div class="sidebar__section">
     <div class="sidebar__heading">Configuration</div>

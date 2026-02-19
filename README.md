@@ -19,7 +19,7 @@
 
 ---
 
-> **Warning:** Octoclaw is an autonomous agent that runs as you. It authenticates with your GitHub token, Azure credentials, and API keys. It can execute code, deploy infrastructure, send messages to real people, and make phone calls -- all under your identity. Understand the [risks](#risks) before running it.
+> **Warning:** Octoclaw is an autonomous agent that runs as you. It authenticates with your GitHub token, Azure credentials, and API keys. It can execute code, deploy infrastructure, send messages to real people, and make phone calls -- all under your identity. Understand the [risks](https://aymenfurter.github.io/octoclaw/responsible-ai/) before running it.
 
 Octoclaw is an autonomous AI copilot built on the **GitHub Copilot SDK**. It gives you the full power of GitHub Copilot -- untethered from the IDE. It writes code, interacts with your repos via the GitHub CLI, authors its own skills at runtime, reaches out to you proactively when something matters, schedules tasks for the future, and can even call you on the phone for urgent matters.
 
@@ -33,7 +33,9 @@ Octoclaw is an autonomous AI copilot built on the **GitHub Copilot SDK**. It giv
 
 **Voice calls.** For truly urgent matters, it calls you on the phone via Azure Communication Services and OpenAI Realtime for a live conversation with your agent.
 
-**Extensible.** Add MCP servers, drop in plugin packs, or write skill files in Markdown. Everything is configurable from the dashboard.
+**Extensible.** Add MCP servers, drop in plugin packs, or write skill files in Markdown. Everything is configurable from the dashboard. Ships with built-in plugins for **Microsoft Work IQ** (daily rollover, end-of-day reviews, weekly and monthly retrospectives powered by Microsoft 365 productivity data) and **Microsoft Foundry Agents** (provision Foundry resources, deploy models, and spin up ad-hoc agents with code interpreter and data analysis via the Foundry v2 Responses API).
+
+**Memory system.** Conversations are automatically consolidated into long-term memory after idle periods. Daily topic notes and memory logs build a persistent knowledge base across sessions. Enable **Foundry IQ** as an optional retrieval layer to index memories into Azure AI Search for richer, semantically grounded recall.
 
 **Persistent workspace.** Its own home directory survives across sessions -- files, databases, scripts, and a built-in Playwright browser for autonomous web navigation.
 
@@ -87,17 +89,51 @@ For full setup instructions, configuration reference, and feature guides, see th
 - An Azure subscription (needed for voice, bot channels, and Foundry integration)
 - [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) (if deploying to Azure)
 
-## Risks
+## Security, Governance & Responsible AI
 
-> **Warning:** Octoclaw is an independent, community-built tool -- not an official GitHub product. It operates under your identity with a high degree of autonomy, meaning it can take actions on your behalf (GitHub, Azure, phone calls, code execution). Misconfiguration or unattended use can have real consequences. This project is intended for developers and technical users who understand the risks of running an autonomous agent with access to their accounts and infrastructure.
+Octoclaw is in **early preview**. Security hardening is the next major focus area. Treat it as experimental software and read this section carefully.
 
-Octoclaw runs as **you**. It authenticates with your GitHub token, your Azure credentials, your API keys. When it pushes code, opens a PR, or deploys infrastructure -- that's your identity on every commit and every API call. There is no sandbox between the agent and your accounts unless you explicitly set one up.
+### Understand the Risks
 
-It can execute arbitrary code on its host. It has a browser. It can make outbound network requests, write files, and call external services. If you give it access to Azure, it can provision real resources that cost real money. If you connect it to a messaging channel, it can send messages to real people. If you give it a phone number, it can make real phone calls.
+Octoclaw is an autonomous agent that acts without asking first -- sending messages, writing files, executing code, making API calls, and placing phone calls on your behalf. It authenticates with your GitHub token, your Azure credentials, your API keys. There is no sandbox between the agent and your accounts unless you explicitly set one up.
 
-The Copilot SDK usage consumes your GitHub Copilot allowance. Scheduled tasks and proactive loops can burn through it fast. The admin UI exposes agent controls over HTTP -- if you don't set a strong `ADMIN_SECRET` and enable `LOCKDOWN_MODE`, anyone who finds your endpoint owns your agent.
+**What can go wrong:** unintended actions from misunderstood instructions, credential exposure via prompt injection or badly written skills, cost overruns from runaway loops provisioning Azure resources, arbitrary code execution without human review, and data leakage through conversations and tool outputs passing through configured channels.
 
-This project uses the [GitHub Copilot SDK](https://github.com/features/copilot), subject to the [GitHub Terms of Service](https://docs.github.com/en/site-policy/github-terms/github-terms-of-service), [Copilot Product Specific Terms](https://docs.github.com/en/site-policy/github-terms/github-copilot-product-specific-terms), and [Pre-release License Terms](https://docs.github.com/en/site-policy/github-terms/github-pre-release-license-terms). Not endorsed by or affiliated with GitHub, Inc. or Microsoft Corporation.
+### What We Have Built So Far
+
+None of these controls have been formally audited. They represent a best-effort starting point.
+
+| Layer | Mechanism |
+|---|---|
+| Admin API | Bearer token (`ADMIN_SECRET`) on all `/api/*` routes |
+| Bot channels | JWT validation via `botbuilder-core` SDK |
+| Voice callbacks | RS256 JWT validation; query-param callback token as secondary check |
+| Telegram | User ID whitelist (`TELEGRAM_WHITELIST`) |
+| Tunnel | `TUNNEL_RESTRICTED` limits exposure to bot/voice endpoints only |
+| Secrets | Azure Key Vault via `@kv:` prefix; `ADMIN_SECRET` auto-generated if not set |
+| Isolation | [Sandbox execution](https://aymenfurter.github.io/octoclaw/features/sandbox/) redirects code to isolated sessions without host access |
+| Lockdown | `LOCKDOWN_MODE` rejects all admin API requests immediately |
+| Transparency | Tool calls visible in chat UI, human-readable `SOUL.md`, version-controlled prompt templates, full session archives |
+| Preflight | [Setup Wizard](https://aymenfurter.github.io/octoclaw/getting-started/setup-wizard/) validates JWT, tunnel, endpoints, and channel security before deployment |
+
+### What Is Missing
+
+- **Rate limiting.** No built-in rate limits on API calls, tool executions, or scheduled tasks.
+- **Fine-grained permissions.** The agent has access to all configured credentials with no per-tool or per-skill scoping.
+- **Multi-tenant isolation.** Designed for single-operator use only.
+
+### Recommendations
+
+1. Do not run against production accounts or infrastructure. Use scoped credentials in a test environment.
+2. Set a strong `ADMIN_SECRET` and store it in a key vault.
+3. Enable `TUNNEL_RESTRICTED` and `TELEGRAM_WHITELIST`.
+4. Enable sandbox execution for code-running workloads.
+5. Monitor logs and session archives. Do not leave the agent running unattended for extended periods.
+6. Review `SOUL.md` and system prompt templates to make sure agent instructions match your expectations.
+
+For the full assessment, see the [Security, Governance & Responsible AI](https://aymenfurter.github.io/octoclaw/responsible-ai/) documentation.
+
+This project uses the [GitHub Copilot SDK](https://github.com/features/copilot), subject to the [GitHub Terms of Service](https://docs.github.com/en/site-policy/github-terms/github-terms-of-service), [Copilot Product Specific Terms](https://docs.github.com/en/site-policy/github-terms/github-copilot-product-specific-terms), and [Pre-release License Terms](https://docs.github.com/en/site-policy/github-terms/github-pre-release-license-terms). Not endorsed by or affiliated with GitHub, Inc.
 
 ## License
 
