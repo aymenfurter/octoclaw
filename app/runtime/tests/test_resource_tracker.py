@@ -146,11 +146,11 @@ class TestResourceTrackerAudit:
             cmd = " ".join(args)
             if "group list" in cmd:
                 return [{"name": "polyclaw-rg", "location": "eastus",
-                         "tags": {"polyclaw_deploy": "octocl-abc123"}}]
+                         "tags": {"polyclaw_deploy": "polycl-abc123"}}]
             if "resource list" in cmd:
                 if "--resource-group" in cmd:
                     return [{"id": "/res1", "name": "app", "type": "Web",
-                             "location": "eastus", "tags": {"polyclaw_deploy": "octocl-abc123"}}]
+                             "location": "eastus", "tags": {"polyclaw_deploy": "polycl-abc123"}}]
                 return []
             return []
 

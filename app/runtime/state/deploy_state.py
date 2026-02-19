@@ -18,7 +18,7 @@ from ..config.settings import cfg
 
 logger = logging.getLogger(__name__)
 
-TAG_PREFIX = "octocl"
+TAG_PREFIX = "polycl"
 
 
 def generate_deploy_id() -> str:

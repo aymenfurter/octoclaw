@@ -51,7 +51,7 @@ function generateDeployId(): string {
 }
 
 function deployTagFor(id: string): string {
-  return `octocl-${id}`;
+  return `polycl-${id}`;
 }
 
 async function syncDeployState(config: AcaConfig): Promise<void> {
