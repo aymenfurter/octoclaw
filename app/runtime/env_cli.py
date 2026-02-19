@@ -257,7 +257,7 @@ def cmd_cleanup_orphans(args: argparse.Namespace) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        prog="octoclaw-env",
+        prog="polyclaw-env",
         description="Manage deployment environments and Azure resources.",
     )
     sub = parser.add_subparsers(dest="command", required=True)

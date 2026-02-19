@@ -27,7 +27,7 @@ export async function buildImage(
   onLine?: (line: string) => void,
 ): Promise<boolean> {
   return execStream(
-    ["docker", "build", "--progress=plain", "-t", "octoclaw", "."],
+    ["docker", "build", "--progress=plain", "-t", "polyclaw", "."],
     onLine,
     PROJECT_ROOT,
   );
@@ -62,17 +62,17 @@ export async function startContainer(
 
   const args = [
     "docker", "run", "-d", "--rm",
-    "-v", "octoclaw-data:/data",
+    "-v", "polyclaw-data:/data",
     "-p", `${adminPort}:${adminPort}`,
     "-p", `${botPort}:${botPort}`,
     "-e", `ADMIN_PORT=${adminPort}`,
   ];
 
   if (mode === "bot") {
-    args.push("-e", "OCTOCLAW_MODE=bot");
+    args.push("-e", "POLYCLAW_MODE=bot");
   }
 
-  args.push("octoclaw");
+  args.push("polyclaw");
 
   const { stdout, exitCode } = await exec(args);
   if (exitCode !== 0) {
@@ -96,7 +96,7 @@ export async function getAdminSecret(): Promise<string> {
   try {
     const { stdout, exitCode } = await exec([
       "docker", "run", "--rm",
-      "-v", "octoclaw-data:/data",
+      "-v", "polyclaw-data:/data",
       "alpine", "cat", "/data/.env",
     ]);
     if (exitCode !== 0) return "";
@@ -121,10 +121,10 @@ export async function resolveKvSecret(
 
   const script = [
     "import os, sys",
-    "os.environ['OCTOCLAW_DATA_DIR'] = '/data'",
+    "os.environ['POLYCLAW_DATA_DIR'] = '/data'",
     "from dotenv import load_dotenv",
     "load_dotenv('/data/.env', override=True)",
-    "from octoclaw.keyvault import kv, is_kv_ref",
+    "from polyclaw.keyvault import kv, is_kv_ref",
     "v = os.getenv('ADMIN_SECRET', '')",
     "if is_kv_ref(v):",
     "    print(kv.resolve_value(v), end='')",
@@ -144,8 +144,8 @@ export async function resolveKvSecret(
   try {
     const { stdout, exitCode } = await exec([
       "docker", "run", "--rm",
-      "-v", "octoclaw-data:/data",
-      "octoclaw", "python", "-c", script,
+      "-v", "polyclaw-data:/data",
+      "polyclaw", "python", "-c", script,
     ]);
     if (exitCode === 0 && stdout) return stdout;
   } catch { /* ignore */ }

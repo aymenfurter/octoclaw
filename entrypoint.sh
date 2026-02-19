@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # Container-only entrypoint
-DATA_DIR="${OCTOCLAW_DATA_DIR:-/data}"
+DATA_DIR="${POLYCLAW_DATA_DIR:-/data}"
 mkdir -p "$DATA_DIR"
 export HOME="$DATA_DIR"
 
@@ -29,7 +29,7 @@ fi
 # This runs BEFORE the main process so the agent itself never sees the KV client.
 if [[ -n "${KEY_VAULT_URL:-}" ]]; then
     echo "Resolving secrets from Key Vault..."
-    eval "$(python -m octoclaw.keyvault_resolve)"
+    eval "$(python -m polyclaw.keyvault_resolve)"
 fi
 
 AUTH_DONE="$DATA_DIR/.copilot-auth/.authenticated"
@@ -46,22 +46,22 @@ fi
 
 # --- Launch ---------------------------------------------------------------
 
-MODE="${OCTOCLAW_MODE:-auto}"
+MODE="${POLYCLAW_MODE:-auto}"
 
 if [[ "$MODE" == "cli" ]]; then
     echo ""
     echo "Starting interactive CLI..."
-    exec octoclaw
+    exec polyclaw
 elif [[ "$MODE" == "bot" ]]; then
     export ADMIN_PORT="${ADMIN_PORT:-${BOT_PORT:-8080}}"
     echo ""
-    echo "Starting octoclaw (bot mode) on port ${ADMIN_PORT}..."
-    exec octoclaw-admin
+    echo "Starting polyclaw (bot mode) on port ${ADMIN_PORT}..."
+    exec polyclaw-admin
 else
     ADMIN_PORT="${ADMIN_PORT:-8080}"
 
     echo ""
-    echo "Starting octoclaw admin on port ${ADMIN_PORT}..."
+    echo "Starting polyclaw admin on port ${ADMIN_PORT}..."
     # Use the env var (already resolved by keyvault_resolve above)
     if [[ -n "${ADMIN_SECRET:-}" ]]; then
         echo "  Admin UI:      http://localhost:${ADMIN_PORT}/?secret=${ADMIN_SECRET}"
@@ -71,5 +71,5 @@ else
     fi
     echo "  Bot messages:  http://localhost:${ADMIN_PORT}/api/messages"
     echo ""
-    exec octoclaw-admin
+    exec polyclaw-admin
 fi

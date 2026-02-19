@@ -5,7 +5,7 @@ weight: 1
 
 # Creating Skills
 
-The easiest way to create a skill is to ask the agent to build one for you. Octoclaw's system prompt instructs the agent to proactively create skills whenever it solves a non-trivial problem or discovers a reusable pattern -- but you can also ask directly.
+The easiest way to create a skill is to ask the agent to build one for you. Polyclaw's system prompt instructs the agent to proactively create skills whenever it solves a non-trivial problem or discovers a reusable pattern -- but you can also ask directly.
 
 ## Creating Skills from Chat
 
@@ -17,7 +17,7 @@ Tell the agent what you want and ask it to save the workflow as a skill:
 
 > "Create a skill called code-review that reviews a PR diff for security issues, performance, and style."
 
-The agent creates a `SKILL.md` file in `~/.octoclaw/skills/<skill-name>/` with the appropriate frontmatter and step-by-step instructions. The skill is available immediately for future conversations.
+The agent creates a `SKILL.md` file in `~/.polyclaw/skills/<skill-name>/` with the appropriate frontmatter and step-by-step instructions. The skill is available immediately for future conversations.
 
 ![Creating a skill from chat](/screenshots/web-chat-createanduseskill.png)
 
@@ -128,9 +128,9 @@ Skills are tracked by origin. The system determines origin automatically:
 
 | Source | Location | How it gets there |
 |---|---|---|
-| **Built-in** | `skills/` (project root) | Shipped with Octoclaw |
-| **Agent-created** | `~/.octoclaw/skills/` | Created by the agent during conversations |
-| **Plugin** | `~/.octoclaw/skills/` | Installed when a plugin is enabled |
-| **Marketplace** | `~/.octoclaw/skills/` | Downloaded from remote catalogs via `/addskill` or the API |
+| **Built-in** | `skills/` (project root) | Shipped with Polyclaw |
+| **Agent-created** | `~/.polyclaw/skills/` | Created by the agent during conversations |
+| **Plugin** | `~/.polyclaw/skills/` | Installed when a plugin is enabled |
+| **Marketplace** | `~/.polyclaw/skills/` | Downloaded from remote catalogs via `/addskill` or the API |
 
 Marketplace-installed skills include a `.origin` metadata file that tracks the source repository. Agent-created and plugin skills are classified automatically based on directory name matching.

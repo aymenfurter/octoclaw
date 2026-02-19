@@ -3,7 +3,7 @@ title: "Configuration"
 weight: 30
 ---
 
-Octoclaw is configured through environment variables loaded from a `.env` file or the system environment. The configuration singleton is defined in `app/runtime/config/settings.py`.
+Polyclaw is configured through environment variables loaded from a `.env` file or the system environment. The configuration singleton is defined in `app/runtime/config/settings.py`.
 
 ## Core Settings
 
@@ -14,7 +14,7 @@ Octoclaw is configured through environment variables loaded from a `.env` file o
 | `COPILOT_AGENT` | -- | Optional Copilot agent name |
 | `ADMIN_PORT` | `8000` | Admin server listen port |
 | `ADMIN_SECRET` | -- | Bearer token for API authentication. Supports `@kv:` prefix. |
-| `OCTOCLAW_DATA_DIR` | `~/.octoclaw` | Root directory for all persistent data |
+| `POLYCLAW_DATA_DIR` | `~/.polyclaw` | Root directory for all persistent data |
 | `DOTENV_PATH` | -- | Custom path to `.env` file |
 
 ## Bot Framework
@@ -69,7 +69,7 @@ Octoclaw is configured through environment variables loaded from a `.env` file o
 
 ## Derived Paths
 
-All paths are computed relative to `OCTOCLAW_DATA_DIR`:
+All paths are computed relative to `POLYCLAW_DATA_DIR`:
 
 | Path | Description |
 |---|---|
@@ -88,8 +88,8 @@ The following environment variables support `@kv:` prefix resolution from Azure 
 For example:
 
 ```bash
-GITHUB_TOKEN=@kv:octoclaw-github-token
-ADMIN_SECRET=@kv:octoclaw-admin-secret
+GITHUB_TOKEN=@kv:polyclaw-github-token
+ADMIN_SECRET=@kv:polyclaw-admin-secret
 ```
 
 This requires `KEY_VAULT_URL` to be set and valid Azure credentials (via `az login` or managed identity).

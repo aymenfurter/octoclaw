@@ -1,7 +1,7 @@
 /**
  * Azure Container Apps deployment target.
  *
- * Pushes the octoclaw image to Azure Container Registry, then creates
+ * Pushes the polyclaw image to Azure Container Registry, then creates
  * or updates an Azure Container App. The container lifecycle is NOT
  * tied to the CLI -- the app keeps running after the CLI exits.
  *
@@ -21,11 +21,11 @@ const PROJECT_ROOT = resolve(import.meta.dir, "../../../..");
 
 const CONFIG_PATH = resolve(
   process.env.HOME || "~",
-  ".octoclaw-aca.json",
+  ".polyclaw-aca.json",
 );
 
 const DEPLOY_STATE_PATH = resolve(
-  process.env.OCTOCLAW_DATA_DIR || resolve(process.env.HOME || "~", ".octoclaw"),
+  process.env.POLYCLAW_DATA_DIR || resolve(process.env.HOME || "~", ".polyclaw"),
   "deployments.json",
 );
 
@@ -245,21 +245,21 @@ export class AcaDeployTarget implements DeployTarget {
     const dtag = deployTagFor(deployId);
     const adminSecret = randomBytes(24).toString("base64url");
 
-    const useRg = prevConfig?.resourceGroup || "octoclaw-acac-rg";
+    const useRg = prevConfig?.resourceGroup || "polyclaw-acac-rg";
     const useLoc = prevConfig?.location || "eastus";
-    const useAcrName = prevConfig?.acrName || `octoclawacr${suffix}`;
-    const useEnv = prevConfig?.environmentName || "octoclaw-env";
-    const useApp = prevConfig?.appName || "octoclaw";
-    const useStorageAccount = prevConfig?.storageAccountName || `octoclawnfs${suffix}`;
-    const useStorageShare = prevConfig?.storageShareName || "octoclawdata";
-    const useVnet = prevConfig?.vnetName || "octoclaw-vnet";
+    const useAcrName = prevConfig?.acrName || `polyclawacr${suffix}`;
+    const useEnv = prevConfig?.environmentName || "polyclaw-env";
+    const useApp = prevConfig?.appName || "polyclaw";
+    const useStorageAccount = prevConfig?.storageAccountName || `polyclawnfs${suffix}`;
+    const useStorageShare = prevConfig?.storageShareName || "polyclawdata";
+    const useVnet = prevConfig?.vnetName || "polyclaw-vnet";
     const useSubnet = prevConfig?.subnetName || "aca-subnet";
-    const imageName = "octoclaw";
+    const imageName = "polyclaw";
     const imageTag = "latest";
 
     // 1. Resource group
     log("Creating resource group...");
-    if (!(await execStream(["az", "group", "create", "--name", useRg, "--location", useLoc, "--tags", `octoclaw_deploy=${dtag}`, "--output", "none"], onLine)))
+    if (!(await execStream(["az", "group", "create", "--name", useRg, "--location", useLoc, "--tags", `polyclaw_deploy=${dtag}`, "--output", "none"], onLine)))
       throw new Error("Failed to create resource group");
 
     // 2. ACR
@@ -337,7 +337,7 @@ export class AcaDeployTarget implements DeployTarget {
     }
 
     // NFS storage link
-    const storageLinkName = "octoclawdata";
+    const storageLinkName = "polyclawdata";
     log("Linking NFS storage to Container Apps environment...");
     const envIdResult = await exec(["az", "containerapp", "env", "show", "--name", useEnv, "--resource-group", useRg, "--query", "id", "--output", "tsv"]);
     if (envIdResult.exitCode !== 0 || !envIdResult.stdout) throw new Error("Failed to get ACA environment resource ID");
@@ -352,7 +352,7 @@ export class AcaDeployTarget implements DeployTarget {
         },
       },
     });
-    const nfsLinkPath = `/tmp/octoclaw-nfs-link-${Date.now()}.json`;
+    const nfsLinkPath = `/tmp/polyclaw-nfs-link-${Date.now()}.json`;
     await Bun.write(nfsLinkPath, nfsLinkBody);
 
     const storageApiUrl = `https://management.azure.com${envId}/storages/${storageLinkName}?api-version=2023-11-02-preview`;
@@ -384,7 +384,7 @@ export class AcaDeployTarget implements DeployTarget {
       "--target-port", String(adminPort), "--ingress", "external",
       "--cpu", "1", "--memory", "2Gi",
       "--min-replicas", "1", "--max-replicas", "1",
-      "--env-vars", `ADMIN_PORT=${adminPort}`, "OCTOCLAW_CONTAINER=1", "OCTOCLAW_DATA_DIR=/data", `ADMIN_SECRET=${adminSecret}`,
+      "--env-vars", `ADMIN_PORT=${adminPort}`, "POLYCLAW_CONTAINER=1", "POLYCLAW_DATA_DIR=/data", `ADMIN_SECRET=${adminSecret}`,
       "--output", "none",
     ], onLine)))
       throw new Error("Failed to create Container App");
@@ -400,7 +400,7 @@ export class AcaDeployTarget implements DeployTarget {
       container.volumeMounts = [{ volumeName, mountPath: "/data" }];
     }
 
-    const updateSpecPath = `/tmp/octoclaw-aca-update-${Date.now()}.json`;
+    const updateSpecPath = `/tmp/polyclaw-aca-update-${Date.now()}.json`;
     await Bun.write(updateSpecPath, JSON.stringify(appSpec, null, 2));
 
     if (!(await execStream(["az", "containerapp", "update", "--name", useApp, "--resource-group", useRg, "--yaml", updateSpecPath, "--output", "none"], onLine)))
@@ -445,7 +445,7 @@ export class AcaDeployTarget implements DeployTarget {
   }
 
   streamLogs(instanceId: string, onLine: (line: string) => void): LogStream {
-    const rg = this._config?.resourceGroup || "octoclaw-acac-rg";
+    const rg = this._config?.resourceGroup || "polyclaw-acac-rg";
     const proc = Bun.spawn(
       ["az", "containerapp", "logs", "show", "--name", instanceId, "--resource-group", rg, "--type", "console", "--follow", "--tail", "50"],
       { stdout: "pipe", stderr: "pipe" },

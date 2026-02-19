@@ -63,7 +63,7 @@ class VoiceSetupRoutes:
     async def deploy(self, req: web.Request) -> web.Response:
         body = await req.json()
         location = body.get("location", "swedencentral").strip()
-        voice_rg = body.get("voice_resource_group", "").strip() or "octoclaw-voice-rg"
+        voice_rg = body.get("voice_resource_group", "").strip() or "polyclaw-voice-rg"
         logger.info("Voice deploy started: voice_rg=%s, location=%s", voice_rg, location)
 
         steps: list[dict] = []
@@ -541,7 +541,7 @@ class VoiceSetupRoutes:
         return bool(result)
 
     async def _create_acs(self, rg: str, steps: list[dict]) -> tuple[str, str]:
-        acs_name = f"octoclaw-acs-{secrets.token_hex(4)}"
+        acs_name = f"polyclaw-acs-{secrets.token_hex(4)}"
         acs = await run_sync(
             self._az.json, "communication", "create",
             "--name", acs_name, "--location", "Global",
@@ -566,7 +566,7 @@ class VoiceSetupRoutes:
     async def _create_aoai(
         self, rg: str, location: str, steps: list[dict],
     ) -> tuple[str, str, str, str]:
-        aoai_name = f"octoclaw-aoai-{secrets.token_hex(4)}"
+        aoai_name = f"polyclaw-aoai-{secrets.token_hex(4)}"
         deployment_name = "gpt-realtime-mini"
 
         aoai = await run_sync(

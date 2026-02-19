@@ -26,23 +26,23 @@ class TestLinkExistingKeyvault:
         rec = DeploymentRecord.new("local", deploy_id="aaaa1111")
         ds.register(rec)
 
-        cfg.write_env(KEY_VAULT_NAME="octoclaw-kv-abc", KEY_VAULT_RG="octoclaw-prereq-rg")
+        cfg.write_env(KEY_VAULT_NAME="polyclaw-kv-abc", KEY_VAULT_RG="polyclaw-prereq-rg")
         routes = _make_routes(tmp_path, deploy_store=ds)
         routes._link_existing_keyvault()
 
         updated = ds.get("aaaa1111")
         assert updated is not None
         assert len(updated.resources) == 1
-        assert updated.resources[0].resource_name == "octoclaw-kv-abc"
+        assert updated.resources[0].resource_name == "polyclaw-kv-abc"
         assert updated.resources[0].resource_type == "keyvault"
-        assert "octoclaw-prereq-rg" in updated.resource_groups
+        assert "polyclaw-prereq-rg" in updated.resource_groups
 
     def test_idempotent(self, tmp_path: Path) -> None:
         ds = DeployStateStore(path=tmp_path / "deploys.json")
         rec = DeploymentRecord.new("local", deploy_id="bbbb2222")
         ds.register(rec)
 
-        cfg.write_env(KEY_VAULT_NAME="octoclaw-kv-xyz", KEY_VAULT_RG="octoclaw-prereq-rg")
+        cfg.write_env(KEY_VAULT_NAME="polyclaw-kv-xyz", KEY_VAULT_RG="polyclaw-prereq-rg")
         routes = _make_routes(tmp_path, deploy_store=ds)
         routes._link_existing_keyvault()
         routes._link_existing_keyvault()  # second call should be no-op
@@ -52,13 +52,13 @@ class TestLinkExistingKeyvault:
 
     def test_noop_without_deploy_store(self, tmp_path: Path) -> None:
         routes = _make_routes(tmp_path, deploy_store=None)
-        cfg.write_env(KEY_VAULT_NAME="octoclaw-kv-nope", KEY_VAULT_RG="rg1")
+        cfg.write_env(KEY_VAULT_NAME="polyclaw-kv-nope", KEY_VAULT_RG="rg1")
         routes._link_existing_keyvault()  # should not raise
 
     def test_noop_without_active_deployment(self, tmp_path: Path) -> None:
         ds = DeployStateStore(path=tmp_path / "deploys.json")
         routes = _make_routes(tmp_path, deploy_store=ds)
-        cfg.write_env(KEY_VAULT_NAME="octoclaw-kv-orphan", KEY_VAULT_RG="rg1")
+        cfg.write_env(KEY_VAULT_NAME="polyclaw-kv-orphan", KEY_VAULT_RG="rg1")
         routes._link_existing_keyvault()  # should not raise
 
     def test_noop_without_kv_name(self, tmp_path: Path) -> None:

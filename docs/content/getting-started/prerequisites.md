@@ -12,7 +12,7 @@ These are needed regardless of which deployment target you choose.
 | Dependency | Version | Purpose |
 |---|---|---|
 | [Bun](https://bun.sh) | latest | Runs the TUI (`app/tui`) |
-| [Docker](https://www.docker.com/) | 20+ | Builds and runs the Octoclaw container |
+| [Docker](https://www.docker.com/) | 20+ | Builds and runs the Polyclaw container |
 | Git | any | Cloning the repository |
 
 The TUI installs its own Node dependencies automatically via `bun install` on first run.
@@ -38,7 +38,7 @@ az login
 
 ## Optional -- Extended Features
 
-These are not required for basic operation but enable additional capabilities once octoclaw is running. Items marked **auto-deployed** are set up automatically during the initial deployment; the rest require manual configuration.
+These are not required for basic operation but enable additional capabilities once polyclaw is running. Items marked **auto-deployed** are set up automatically during the initial deployment; the rest require manual configuration.
 
 | Service / Tool | Required For | Deployed |
 |---|---|---|

@@ -3,7 +3,7 @@ title: "Skills"
 weight: 60
 ---
 
-Skills are instructions that teach Octoclaw how to perform specific tasks. Each skill is a directory containing a `SKILL.md` file with YAML frontmatter and Markdown instructions.
+Skills are instructions that teach Polyclaw how to perform specific tasks. Each skill is a directory containing a `SKILL.md` file with YAML frontmatter and Markdown instructions.
 
 ## How Skills Work
 
@@ -59,10 +59,10 @@ Skills come from four sources, tracked via a `.origin` file in each skill direct
 
 | Source | Location | Description |
 |---|---|---|
-| **Built-in** | `skills/` (project root) | Shipped with Octoclaw |
-| **Agent-created** | `~/.octoclaw/skills/` | Created by the agent during conversations |
-| **Plugin-provided** | `~/.octoclaw/skills/` | Installed when a plugin is enabled |
-| **Marketplace** | `~/.octoclaw/skills/` | Downloaded from remote catalogs |
+| **Built-in** | `skills/` (project root) | Shipped with Polyclaw |
+| **Agent-created** | `~/.polyclaw/skills/` | Created by the agent during conversations |
+| **Plugin-provided** | `~/.polyclaw/skills/` | Installed when a plugin is enabled |
+| **Marketplace** | `~/.polyclaw/skills/` | Downloaded from remote catalogs |
 
 ## Sections
 

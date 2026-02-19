@@ -97,7 +97,7 @@ export const MOCK_PLUGINS = {
     {
       id: 'github-status', name: 'GitHub Status', version: '1.0.0',
       description: 'Monitor GitHub service status', icon: 'star', enabled: true,
-      skill_count: 1, source: 'builtin', author: 'octoclaw', homepage: 'https://example.com',
+      skill_count: 1, source: 'builtin', author: 'polyclaw', homepage: 'https://example.com',
       setup_skill: false, setup_completed: false, skills: ['gh-status'],
     },
     {
@@ -167,7 +167,7 @@ export const MOCK_PROACTIVE = {
 }
 
 export const MOCK_PROFILE = {
-  name: 'Octoclaw Agent',
+  name: 'Polyclaw Agent',
   personality: 'Helpful and proactive assistant',
   instructions: 'You are a coding assistant.',
   avatar_url: null,
@@ -188,8 +188,8 @@ export const MOCK_MODELS = {
 
 export const MOCK_CONFIG = {
   COPILOT_MODEL: 'gpt-4o',
-  AGENT_NAME: 'Octoclaw',
-  SYSTEM_PROMPT: 'You are Octoclaw.',
+  AGENT_NAME: 'Polyclaw',
+  SYSTEM_PROMPT: 'You are Polyclaw.',
 }
 
 export const MOCK_SANDBOX = {
@@ -197,7 +197,7 @@ export const MOCK_SANDBOX = {
   sync_data: true,
   session_pool_endpoint: 'https://sandbox.example.com',
   is_provisioned: true,
-  pool_name: 'octoclaw-pool',
+  pool_name: 'polyclaw-pool',
   resource_group: 'rg-sandbox',
   location: 'eastus',
   whitelist: ['requests', 'pandas'],
@@ -208,9 +208,9 @@ export const MOCK_DEPLOYMENTS = {
     {
       deploy_id: 'dep-001', tag: 'v3.0.0', kind: 'aca', status: 'active',
       resource_count: 6, created_at: '2026-02-10T12:00:00Z', updated_at: '2026-02-15T08:00:00Z',
-      resource_groups: ['rg-octoclaw-prod'],
+      resource_groups: ['rg-polyclaw-prod'],
       resources: [
-        { resource_type: 'ContainerApp', resource_name: 'octoclaw-app', resource_group: 'rg-octoclaw-prod', purpose: 'main' },
+        { resource_type: 'ContainerApp', resource_name: 'polyclaw-app', resource_group: 'rg-polyclaw-prod', purpose: 'main' },
       ],
     },
   ],
@@ -220,7 +220,7 @@ export const MOCK_FOUNDRY_IQ_CONFIG = {
   enabled: true,
   search_endpoint: 'https://search.example.com',
   search_api_key: '****',
-  index_name: 'octoclaw-memories',
+  index_name: 'polyclaw-memories',
   embedding_endpoint: 'https://embedding.example.com',
   embedding_api_key: '****',
   embedding_model: 'text-embedding-3-large',
@@ -492,7 +492,7 @@ export async function mockApi(page: Page) {
  */
 export async function bypassAuth(page: Page) {
   await page.addInitScript(() => {
-    localStorage.setItem('octoclaw_disclaimer_accepted', '1')
-    localStorage.setItem('octoclaw_secret', 'test-secret')
+    localStorage.setItem('polyclaw_disclaimer_accepted', '1')
+    localStorage.setItem('polyclaw_secret', 'test-secret')
   })
 }

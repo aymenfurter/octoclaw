@@ -9,7 +9,7 @@ weight: 1
 
 The [Model Context Protocol](https://modelcontextprotocol.io/) (MCP) is an open standard that lets AI agents call external tools and access data sources. An MCP server is a lightweight process or service that exposes a set of tools -- the agent discovers them automatically and can invoke them during conversations.
 
-This is how Octoclaw gets capabilities like browser automation, Azure resource management, documentation search, and GitHub integration without any of that logic living inside the agent itself. You enable the MCP servers you need, and the agent gains their tools.
+This is how Polyclaw gets capabilities like browser automation, Azure resource management, documentation search, and GitHub integration without any of that logic living inside the agent itself. You enable the MCP servers you need, and the agent gains their tools.
 
 ## Managing MCP Servers
 
@@ -78,18 +78,18 @@ The Playwright MCP server gives the agent a full headless browser. It can naviga
 
 ## Server Types
 
-Octoclaw supports four transport types:
+Polyclaw supports four transport types:
 
 | Type | Description |
 |---|---|
-| `local` | Subprocess spawned by Octoclaw, communicates via stdio |
+| `local` | Subprocess spawned by Polyclaw, communicates via stdio |
 | `stdio` | External process with stdin/stdout transport |
 | `http` | Remote HTTP endpoint |
 | `sse` | Server-Sent Events endpoint |
 
 ## Built-in MCP Servers
 
-Octoclaw ships with several pre-configured MCP servers:
+Polyclaw ships with several pre-configured MCP servers:
 
 | Server | Type | Default | Purpose |
 |---|---|---|---|
@@ -100,7 +100,7 @@ Octoclaw ships with several pre-configured MCP servers:
 
 ## Configuration Storage
 
-MCP server definitions are stored in `~/.octoclaw/mcp_servers.json`. Each entry specifies a server type, connection details, and metadata. You rarely need to edit this file directly -- the dashboard and slash commands manage it for you.
+MCP server definitions are stored in `~/.polyclaw/mcp_servers.json`. Each entry specifies a server type, connection details, and metadata. You rarely need to edit this file directly -- the dashboard and slash commands manage it for you.
 
 ## Adding Custom MCP Servers
 

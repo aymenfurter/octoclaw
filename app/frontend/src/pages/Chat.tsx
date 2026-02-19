@@ -126,7 +126,7 @@ export default function Chat() {
     <div className="chat">
       {isEmpty ? (
         <div className="chat__empty">
-          <img src="/logo.png" alt="octoclaw" className="chat__empty-logo" />
+          <img src="/logo.png" alt="polyclaw" className="chat__empty-logo" />
           <h1 className="chat__empty-title">What can I help you with?</h1>
           <p className="chat__empty-sub">
             Start a conversation, run a slash command, or pick a skill.
@@ -242,7 +242,7 @@ export default function Chat() {
             value={input}
             onChange={e => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
-            placeholder={connected ? 'Message octoclaw...' : 'Connecting...'}
+            placeholder={connected ? 'Message polyclaw...' : 'Connecting...'}
             disabled={!connected}
             rows={1}
           />

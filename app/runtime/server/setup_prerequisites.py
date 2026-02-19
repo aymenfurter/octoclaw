@@ -19,7 +19,7 @@ from ..util.async_helpers import run_sync
 
 logger = logging.getLogger(__name__)
 
-_DEFAULT_PREREQ_RG = "octoclaw-prereq-rg"
+_DEFAULT_PREREQ_RG = "polyclaw-prereq-rg"
 
 
 class PrerequisitesRoutes:
@@ -212,7 +212,7 @@ class PrerequisitesRoutes:
         if self._deploy_store:
             rec = self._deploy_store.current_local()
             if rec:
-                tag_args = ["--tags", f"octoclaw_deploy={rec.tag}"]
+                tag_args = ["--tags", f"polyclaw_deploy={rec.tag}"]
 
         result = await run_sync(
             self._az.json,
@@ -236,7 +236,7 @@ class PrerequisitesRoutes:
     ) -> str:
         import secrets as _secrets
 
-        vault_name = f"octoclaw-kv-{_secrets.token_hex(4)}"
+        vault_name = f"polyclaw-kv-{_secrets.token_hex(4)}"
         result = await run_sync(
             self._az.json,
             "keyvault", "create",

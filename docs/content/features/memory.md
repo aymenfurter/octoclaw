@@ -5,7 +5,7 @@ weight: 6
 
 # Memory System
 
-Octoclaw includes an automatic memory consolidation system that converts recent conversations into persistent long-term memories. The agent can recall past interactions at any time.
+Polyclaw includes an automatic memory consolidation system that converts recent conversations into persistent long-term memories. The agent can recall past interactions at any time.
 
 ![Memory recall in conversation](/screenshots/web-memorydemo-whathavewetalkedrecently.png)
 
@@ -29,7 +29,7 @@ After `MEMORY_IDLE_MINUTES` (default: 5 minutes) of inactivity:
 ### Memory Storage
 
 ```
-~/.octoclaw/memory/
+~/.polyclaw/memory/
   daily/
     2025-02-17.md    # Daily log entries
     2025-02-16.md

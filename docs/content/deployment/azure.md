@@ -32,13 +32,13 @@ The TUI creates the following Azure resources in a single resource group:
 
 | Resource | Purpose |
 |---|---|
-| **Resource Group** | Contains all deployment resources (default: `octoclaw-acac-rg`) |
-| **Azure Container Registry** | Stores the Octoclaw Docker image |
+| **Resource Group** | Contains all deployment resources (default: `polyclaw-acac-rg`) |
+| **Azure Container Registry** | Stores the Polyclaw Docker image |
 | **VNet + Subnet** | Network isolation for the Container Apps environment |
 | **Premium FileStorage account** | NFS-backed persistent storage for `/data` |
 | **NFS File Share** | Mounted into the Container App at `/data` |
 | **Container Apps Environment** | Hosts the Container App with VNet integration |
-| **Container App** | Runs the Octoclaw container (1 CPU, 2 GiB RAM, 1 replica) |
+| **Container App** | Runs the Polyclaw container (1 CPU, 2 GiB RAM, 1 replica) |
 
 The deployment sequence is:
 
@@ -53,7 +53,7 @@ The deployment sequence is:
 9. Create the Container App with the NFS volume mounted at `/data`
 10. Restart the revision to activate storage and retrieve the FQDN
 
-All resource names, the admin secret, and the deployment configuration are saved to `~/.octoclaw-aca.json` so the TUI can reconnect on subsequent launches.
+All resource names, the admin secret, and the deployment configuration are saved to `~/.polyclaw-aca.json` so the TUI can reconnect on subsequent launches.
 
 ## Reconnecting
 

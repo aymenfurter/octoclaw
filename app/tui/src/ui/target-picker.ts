@@ -48,13 +48,13 @@ interface TargetOption {
 /**
  * Let the user choose a deployment target.
  *
- * If `OCTOCLAW_TARGET` is set, skips the interactive picker.
+ * If `POLYCLAW_TARGET` is set, skips the interactive picker.
  */
 export async function pickDeployTarget(
   adminPort: number,
   botPort: number,
 ): Promise<DeployTarget> {
-  const envTarget = process.env.OCTOCLAW_TARGET?.toLowerCase();
+  const envTarget = process.env.POLYCLAW_TARGET?.toLowerCase();
   if (envTarget === "docker") return new DockerDeployTarget();
   if (envTarget === "aca") {
     const existing = await getExistingDeployment();

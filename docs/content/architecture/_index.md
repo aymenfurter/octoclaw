@@ -4,10 +4,10 @@ weight: 20
 ---
 
 <div class="arch-diagram">
-  <img src="/screenshots/architecture.png" alt="Octoclaw architecture overview" />
+  <img src="/screenshots/architecture.png" alt="Polyclaw architecture overview" />
 </div>
 
-Octoclaw is a monorepo containing a Python backend, a React frontend, and a Node.js terminal UI. The system is designed as a set of loosely coupled layers that communicate through well-defined interfaces.
+Polyclaw is a monorepo containing a Python backend, a React frontend, and a Node.js terminal UI. The system is designed as a set of loosely coupled layers that communicate through well-defined interfaces.
 
 ## System Layers
 
@@ -39,7 +39,7 @@ The chat interface lets the user pick a model and a skill mode before sending a 
 ### Bot Framework
 
 1. Azure Bot Service delivers an activity to `POST /api/messages`
-2. `BotEndpoint` validates the request and dispatches to `OctoclawBot`
+2. `BotEndpoint` validates the request and dispatches to `PolyclawBot`
 3. The bot sends an immediate typing indicator (to avoid the 15-second timeout)
 4. Processing runs in a background task via `MessageProcessor`
 5. Agent generates a response, which is delivered via proactive messaging
@@ -55,10 +55,10 @@ The chat interface lets the user pick a model and a skill mode before sending a 
 
 ## Data Flow
 
-All persistent state is stored as JSON files under `~/.octoclaw/` (configurable via `OCTOCLAW_DATA_DIR`):
+All persistent state is stored as JSON files under `~/.polyclaw/` (configurable via `POLYCLAW_DATA_DIR`):
 
 ```
-~/.octoclaw/
+~/.polyclaw/
   SOUL.md                # Agent personality
   profile.json           # Agent profile and stats
   mcp_servers.json       # MCP server configuration

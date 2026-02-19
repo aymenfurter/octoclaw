@@ -26,9 +26,9 @@ SECRET_ENV_KEYS: frozenset[str] = frozenset({
 
 @dataclass
 class BotConfig:
-    resource_group: str = "octoclaw-rg"
+    resource_group: str = "polyclaw-rg"
     location: str = "eastus"
-    display_name: str = "octoclaw"
+    display_name: str = "polyclaw"
     bot_handle: str = ""
 
 
@@ -60,7 +60,7 @@ class ModelConfig:
 class Settings:
     """Runtime configuration sourced from environment variables and ``.env``."""
 
-    _DATA_DIR_ENV: ClassVar[str] = "OCTOCLAW_DATA_DIR"
+    _DATA_DIR_ENV: ClassVar[str] = "POLYCLAW_DATA_DIR"
 
     def __init__(self) -> None:
         # Resolve .env path: explicit DOTENV_PATH > data_dir/.env > CWD/.env
@@ -120,7 +120,7 @@ class Settings:
 
     @property
     def data_dir(self) -> Path:
-        return Path(os.getenv(self._DATA_DIR_ENV, str(Path.home() / ".octoclaw")))
+        return Path(os.getenv(self._DATA_DIR_ENV, str(Path.home() / ".polyclaw")))
 
     @property
     def media_dir(self) -> Path:
@@ -180,7 +180,7 @@ class Settings:
 
     @property
     def project_root(self) -> Path:
-        env_root = os.getenv("OCTOCLAW_PROJECT_ROOT")
+        env_root = os.getenv("POLYCLAW_PROJECT_ROOT")
         if env_root:
             return Path(env_root)
         # Walk up from this file until we find a directory containing plugins/ or pyproject.toml

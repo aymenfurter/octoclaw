@@ -5,7 +5,7 @@ weight: 1
 
 # Messaging & Bot Framework
 
-Octoclaw integrates with the Azure Bot Framework to support messaging channels (currently Telegram is the only channel implemented, but extending to additional Bot Service-supported channels such as LINE, Teams, etc. is trivial).
+Polyclaw integrates with the Azure Bot Framework to support messaging channels (currently Telegram is the only channel implemented, but extending to additional Bot Service-supported channels such as LINE, Teams, etc. is trivial).
 
 ## Architecture
 
@@ -25,7 +25,7 @@ The messaging system consists of:
 
 1. Azure Bot Service delivers an activity to `POST /api/messages`
 2. `BotEndpoint` validates the request via Bot Framework SDK authentication
-3. `OctoclawBot.on_message_activity()` handles the message:
+3. `PolyclawBot.on_message_activity()` handles the message:
    - Checks Telegram whitelisting
    - Stores the conversation reference
    - Detects slash commands
@@ -68,7 +68,7 @@ When a user sends a file or image:
 
 1. The attachment is downloaded from the Bot Framework CDN
 2. Classified by MIME type (image, audio, video, file)
-3. Stored in `~/.octoclaw/media/incoming/`
+3. Stored in `~/.polyclaw/media/incoming/`
 4. A media-aware prompt is built for the agent
 
 When the agent generates content with files:
@@ -80,7 +80,7 @@ When the agent generates content with files:
 
 ## Conversation References
 
-Stored in `~/.octoclaw/conversation_refs.json`. Each channel/conversation pair is saved so that proactive messages can be sent later without an incoming trigger.
+Stored in `~/.polyclaw/conversation_refs.json`. Each channel/conversation pair is saved so that proactive messages can be sent later without an incoming trigger.
 
 ## Telegram-Specific Behavior
 

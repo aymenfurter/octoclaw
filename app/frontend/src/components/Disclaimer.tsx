@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-const DISCLAIMER_KEY = 'octoclaw_disclaimer_accepted'
+const DISCLAIMER_KEY = 'polyclaw_disclaimer_accepted'
 
 export default function Disclaimer({ onAccept }: { onAccept: () => void }) {
   const [checked, setChecked] = useState(false)

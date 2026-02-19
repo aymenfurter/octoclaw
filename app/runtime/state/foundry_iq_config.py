@@ -18,7 +18,7 @@ class FoundryIQConfig:
     enabled: bool = False
     search_endpoint: str = ""
     search_api_key: str = ""
-    index_name: str = "octoclaw-memories"
+    index_name: str = "polyclaw-memories"
     embedding_endpoint: str = ""
     embedding_api_key: str = ""
     embedding_model: str = "text-embedding-3-large"

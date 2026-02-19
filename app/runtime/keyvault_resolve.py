@@ -2,7 +2,7 @@
 
 Called by ``entrypoint.sh`` as::
 
-    eval "$(python -m octoclaw.keyvault_resolve)"
+    eval "$(python -m polyclaw.keyvault_resolve)"
 
 Reads ``@kv:`` references from ``os.environ``, resolves them via
 :class:`~app.runtime.services.keyvault.KeyVaultClient`, and prints

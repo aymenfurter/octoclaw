@@ -5,7 +5,7 @@ weight: 3
 
 # Setup Wizard
 
-Once octoclaw finishes building and passes its health check, the TUI automatically opens the Setup screen in your default browser. From here you configure authentication, bot settings, and infrastructure.
+Once polyclaw finishes building and passes its health check, the TUI automatically opens the Setup screen in your default browser. From here you configure authentication, bot settings, and infrastructure.
 
 ## Setup Screen
 
@@ -17,9 +17,9 @@ Once octoclaw finishes building and passes its health check, the TUI automatical
 <p class="callout__title">Understand what these logins mean</p>
 <p><strong>Both Azure Login and GitHub Login are required during setup.</strong> You cannot skip either one at this stage.</p>
 
-<p><strong>GitHub Login</strong> authenticates with GitHub Copilot. The Copilot SDK is the agent&rsquo;s reasoning engine&mdash;without it, octoclaw cannot function. This authentication must remain active for the lifetime of the agent. Your GitHub account determines which Copilot models and rate limits are available.</p>
+<p><strong>GitHub Login</strong> authenticates with GitHub Copilot. The Copilot SDK is the agent&rsquo;s reasoning engine&mdash;without it, polyclaw cannot function. This authentication must remain active for the lifetime of the agent. Your GitHub account determines which Copilot models and rate limits are available.</p>
 
-<p><strong>Azure Login</strong> signs you in with the Azure CLI. The agent then runs under <strong>your</strong> Azure identity. This is not a sandboxed chat interface like ChatGPT or Copilot Chat. octoclaw is an autonomous agent with tool-calling capabilities&mdash;it can create, modify, and delete real Azure resources, spend money on your subscription, and access any service your account has permissions for.</p>
+<p><strong>Azure Login</strong> signs you in with the Azure CLI. The agent then runs under <strong>your</strong> Azure identity. This is not a sandboxed chat interface like ChatGPT or Copilot Chat. polyclaw is an autonomous agent with tool-calling capabilities&mdash;it can create, modify, and delete real Azure resources, spend money on your subscription, and access any service your account has permissions for.</p>
 
 <p>Before logging in, make sure you understand the implications:</p>
 <ul>
@@ -48,7 +48,7 @@ Status indicators for Azure, GitHub, and tunnel connectivity. Each can be initia
 
 A form for configuring the Bot Framework deployment:
 
-- **Resource Group** -- Azure resource group for bot resources (default: `octoclaw-rg`)
+- **Resource Group** -- Azure resource group for bot resources (default: `polyclaw-rg`)
 - **Location** -- Azure region (default: `eastus`)
 - **Bot Display Name** -- display name for the Azure Bot resource
 - **Telegram Token** -- Bot token from @BotFather (optional)
@@ -76,7 +76,7 @@ On first launch, the agent detects whether identity has been configured by check
 ### Steps
 
 1. **Identity** -- the agent chooses a name, emoji, location, and personality traits for itself
-2. **SOUL.md** -- a Markdown file at `~/.octoclaw/SOUL.md` defining the agent's personality, communication style, and behavioral guidelines. Used as part of the system prompt for every interaction.
+2. **SOUL.md** -- a Markdown file at `~/.polyclaw/SOUL.md` defining the agent's personality, communication style, and behavioral guidelines. Used as part of the system prompt for every interaction.
 3. **Channel setup** (optional) -- if Bot Framework credentials are configured, the wizard can start a tunnel, deploy a bot resource, and configure Teams or Telegram channels
 4. **Completion** -- the bootstrap prompt deactivates and the agent switches to normal operation
 
@@ -86,9 +86,9 @@ On first launch, the agent detects whether identity has been configured by check
 
 To reset identity and re-enter the wizard:
 
-1. Delete `~/.octoclaw/SOUL.md`
-2. Clear the profile state via `/profile` commands or delete `~/.octoclaw/agent_profile.json`
-3. Restart Octoclaw
+1. Delete `~/.polyclaw/SOUL.md`
+2. Clear the profile state via `/profile` commands or delete `~/.polyclaw/agent_profile.json`
+3. Restart Polyclaw
 
 ## Customization Page
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Launch the Octoclaw TUI (app/tui) -- the updated CLI that can manage
+# Launch the Polyclaw TUI (app/tui) -- the updated CLI that can manage
 # the backend and frontend from an interactive terminal UI.
 #
 # Usage:

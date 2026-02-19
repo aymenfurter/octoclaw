@@ -36,7 +36,7 @@ test.describe('Disclaimer gate', () => {
 
   test('disclaimer is skipped after accepting', async ({ page }) => {
     await page.addInitScript(() => {
-      localStorage.setItem('octoclaw_disclaimer_accepted', '1')
+      localStorage.setItem('polyclaw_disclaimer_accepted', '1')
     })
     await page.goto('/')
     await expect(page.locator('.disclaimer-card')).not.toBeVisible()
@@ -46,7 +46,7 @@ test.describe('Disclaimer gate', () => {
 test.describe('Login overlay', () => {
   test.beforeEach(async ({ page }) => {
     await page.addInitScript(() => {
-      localStorage.setItem('octoclaw_disclaimer_accepted', '1')
+      localStorage.setItem('polyclaw_disclaimer_accepted', '1')
     })
     await mockApi(page)
   })
@@ -58,7 +58,7 @@ test.describe('Login overlay', () => {
     )
     await page.goto('/')
     await expect(page.locator('.login-card')).toBeVisible()
-    await expect(page.getByText('Octoclaw')).toBeVisible()
+    await expect(page.getByText('Polyclaw')).toBeVisible()
   })
 
   test('sign-in button is disabled when input is empty', async ({ page }) => {

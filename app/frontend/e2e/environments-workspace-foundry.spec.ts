@@ -34,7 +34,7 @@ test.describe('Environments page', () => {
     await page.goto('/environments')
     await page.getByText('dep-001').click()
     await expect(page.getByText('ContainerApp')).toBeVisible()
-    await expect(page.getByText('octoclaw-app')).toBeVisible()
+    await expect(page.getByText('polyclaw-app')).toBeVisible()
   })
 
   test('audit button sends POST', async ({ page }) => {
@@ -173,7 +173,7 @@ test.describe('Foundry IQ page', () => {
       if (url.includes('/foundry-iq/stats')) {
         return route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ status: 'ok', document_count: 150, index_missing: false }) })
       }
-      return route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ status: 'ok', enabled: true, search_endpoint: 'https://search.example.com', index_name: 'octoclaw-memories', embedding_endpoint: 'https://embedding.example.com', embedding_model: 'text-embedding-3-large', embedding_dimensions: 3072, index_schedule: 'daily', provisioned: false }) })
+      return route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ status: 'ok', enabled: true, search_endpoint: 'https://search.example.com', index_name: 'polyclaw-memories', embedding_endpoint: 'https://embedding.example.com', embedding_model: 'text-embedding-3-large', embedding_dimensions: 3072, index_schedule: 'daily', provisioned: false }) })
     })
     await page.goto('/foundry-iq')
     await Promise.all([

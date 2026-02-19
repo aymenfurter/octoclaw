@@ -5,7 +5,7 @@ weight: 3
 
 # Built-in Skills
 
-Octoclaw ships with these skills in the `skills/` directory.
+Polyclaw ships with these skills in the `skills/` directory.
 
 ## Daily Briefing
 
@@ -25,8 +25,8 @@ brief
 
 ### How It Works
 
-1. Reads daily log files from `~/.octoclaw/memory/daily/`
-2. Reads topic notes from `~/.octoclaw/memory/topics/`
+1. Reads daily log files from `~/.polyclaw/memory/daily/`
+2. Reads topic notes from `~/.polyclaw/memory/topics/`
 3. Synthesizes a morning summary with key points, pending items, and context
 
 ---

@@ -1,4 +1,4 @@
-# Soul of octoclaw
+# Soul of polyclaw
 
 > Placeholder identity -- on first interactive session the agent will replace
 > this file with its own unique self-chosen identity.

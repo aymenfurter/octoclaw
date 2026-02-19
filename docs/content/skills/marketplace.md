@@ -5,7 +5,7 @@ weight: 2
 
 # Skill Marketplace
 
-Octoclaw supports discovering and installing skills from remote catalogs hosted on GitHub.
+Polyclaw supports discovering and installing skills from remote catalogs hosted on GitHub.
 
 ## Remote Catalogs
 
@@ -21,7 +21,7 @@ Each catalog is a repository containing skill directories with `SKILL.md` files.
 1. The registry fetches the catalog index from GitHub
 2. Available skills are listed with name, description, and commit count
 3. Users can install skills directly from the marketplace
-4. Downloaded skills are placed in `~/.octoclaw/skills/` with a `.origin` file
+4. Downloaded skills are placed in `~/.polyclaw/skills/` with a `.origin` file
 
 ## Caching
 

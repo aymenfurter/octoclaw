@@ -3,7 +3,7 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "octoclaw"
+name = "polyclaw"
 version = "4.0.0"
 description = "Autonomous AI copilot with web admin interface, multi-channel Bot Framework support, and built-in chat. Powered by GitHub Copilot SDK."
 readme = "README.md"
@@ -42,13 +42,13 @@ dev = [
 ]
 
 [project.scripts]
-octoclaw = "octoclaw.cli:main"
-octoclaw-bot = "octoclaw.server:main"
-octoclaw-admin = "octoclaw.server:main"
-octoclaw-env = "octoclaw.env_cli:main"
+polyclaw = "polyclaw.cli:main"
+polyclaw-bot = "polyclaw.server:main"
+polyclaw-admin = "polyclaw.server:main"
+polyclaw-env = "polyclaw.env_cli:main"
 
 [tool.setuptools.packages.find]
-include = ["octoclaw*"]
+include = ["polyclaw*"]
 
 [tool.ruff]
 line-length = 100
@@ -66,10 +66,10 @@ markers = [
 ]
 
 [tool.coverage.run]
-source = ["octoclaw", "app/runtime"]
+source = ["polyclaw", "app/runtime"]
 omit = [
-    "octoclaw/static/*",
-    "octoclaw/tests/*",
+    "polyclaw/static/*",
+    "polyclaw/tests/*",
     "app/runtime/tests/*",
     "app/runtime/static/*",
 ]

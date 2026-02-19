@@ -1,5 +1,5 @@
 /* -----------------------------------------------------------------------
-   API client for octoclaw backend.  All HTTP calls go through `api()`.
+   API client for polyclaw backend.  All HTTP calls go through `api()`.
    WebSocket chat is managed separately via `createChatSocket()`.
    ----------------------------------------------------------------------- */
 
@@ -9,7 +9,7 @@ import type { ApiResponse } from './types'
 // Auth token management
 // ---------------------------------------------------------------------------
 
-const TOKEN_KEY = 'octoclaw_secret'
+const TOKEN_KEY = 'polyclaw_secret'
 
 export function getToken(): string {
   return localStorage.getItem(TOKEN_KEY) || ''

@@ -163,7 +163,7 @@ export default function SetupWizard() {
     <div className="page page--setup">
       <div className="setup">
         <div className="setup__header">
-          <img src="/logo.png" alt="octoclaw" className="setup__logo" />
+          <img src="/logo.png" alt="polyclaw" className="setup__logo" />
           <p>Complete the initial setup to get started. Azure and GitHub authentication are required.</p>
         </div>
 
@@ -271,7 +271,7 @@ export default function SetupWizard() {
           {currentStep === 'config' && (
             <div className="setup__panel">
               <h2>Messaging Channels</h2>
-              <p>Connect a Telegram bot to chat with octoclaw on Telegram. This is optional -- you can skip and configure it later from Settings.</p>
+              <p>Connect a Telegram bot to chat with polyclaw on Telegram. This is optional -- you can skip and configure it later from Settings.</p>
               <form onSubmit={handleSaveConfig} className="form">
                 <div className="form__group">
                   <label className="form__label">Telegram Bot Token</label>
@@ -362,7 +362,7 @@ export default function SetupWizard() {
         {setupDone && status?.azure?.logged_in && (
           <div className="setup__optional">
             <h2 className="setup__optional-title">Optional Infrastructure</h2>
-            <p className="setup__optional-desc">Provision additional Azure resources. These are not required to use octoclaw.</p>
+            <p className="setup__optional-desc">Provision additional Azure resources. These are not required to use polyclaw.</p>
 
             <div className="setup__optional-grid">
               <div className="setup__opt-row">

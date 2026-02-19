@@ -7,7 +7,7 @@ weight: 3
 
 ![Plugin listing in customization view](/screenshots/web-customization-listplugins.png)
 
-Octoclaw ships with these plugins in the `plugins/` directory.
+Polyclaw ships with these plugins in the `plugins/` directory.
 
 ## Foundry Agents
 

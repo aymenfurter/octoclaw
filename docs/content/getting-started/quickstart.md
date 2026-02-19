@@ -5,13 +5,13 @@ weight: 1
 
 # Quickstart
 
-Get Octoclaw running in under five minutes using the TUI.
+Get Polyclaw running in under five minutes using the TUI.
 
 ## 1. Clone the Repository
 
 ```bash
-git clone https://github.com/aymenfurter/octoclaw.git
-cd octoclaw
+git clone https://github.com/aymenfurter/polyclaw.git
+cd polyclaw
 ```
 
 ## 2. Install Bun
@@ -24,7 +24,7 @@ curl -fsSL https://bun.sh/install | bash
 
 ## 3. Install Docker
 
-The TUI builds and runs Octoclaw inside a Docker container. Make sure Docker is installed and the daemon is running:
+The TUI builds and runs Polyclaw inside a Docker container. Make sure Docker is installed and the daemon is running:
 
 ```bash
 docker --version

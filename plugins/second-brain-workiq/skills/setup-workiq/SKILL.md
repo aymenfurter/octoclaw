@@ -13,7 +13,7 @@ metadata:
 Install the WorkIQ CLI for accessing Microsoft 365 data (emails, meetings, documents, Teams messages).
 
 WorkIQ runs as a native MCP server (`workiq mcp`) and is registered as a
-built-in MCP server in octoclaw. This setup skill just ensures the binary
+built-in MCP server in polyclaw. This setup skill just ensures the binary
 is installed and the user has authenticated.
 
 ## Step 1 -- Install via npm

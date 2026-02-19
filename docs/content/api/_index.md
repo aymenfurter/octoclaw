@@ -3,7 +3,7 @@ title: "API Reference"
 weight: 70
 ---
 
-Octoclaw exposes a REST API and a WebSocket endpoint for the admin dashboard and external integrations.
+Polyclaw exposes a REST API and a WebSocket endpoint for the admin dashboard and external integrations.
 
 ## Authentication
 

@@ -5,11 +5,11 @@ weight: 5
 
 # Sandbox Execution (Experimental)
 
-Octoclaw can execute code in isolated sandbox environments using [Azure Container Apps Dynamic Sessions](https://learn.microsoft.com/en-us/azure/container-apps/sessions). Sandbox mode is **disabled by default**.
+Polyclaw can execute code in isolated sandbox environments using [Azure Container Apps Dynamic Sessions](https://learn.microsoft.com/en-us/azure/container-apps/sessions). Sandbox mode is **disabled by default**.
 
 ## How It Works
 
-Octoclaw runs inside its own container and normally has full access to Azure credentials, the local filesystem, and all configured services. When sandbox mode is enabled, the agent's code-execution tool calls are intercepted and redirected to a **remote** container session instead of running on the host.
+Polyclaw runs inside its own container and normally has full access to Azure credentials, the local filesystem, and all configured services. When sandbox mode is enabled, the agent's code-execution tool calls are intercepted and redirected to a **remote** container session instead of running on the host.
 
 The flow looks like this:
 
@@ -18,7 +18,7 @@ The flow looks like this:
 3. The code runs inside that remote container via `bootstrap.sh`
 4. Results and generated files are **synced back** to the local environment
 
-This means the agent's code never touches the host container directly. The remote session is a throwaway environment with no access to Octoclaw's own container, its Azure credentials, or any of its infrastructure.
+This means the agent's code never touches the host container directly. The remote session is a throwaway environment with no access to Polyclaw's own container, its Azure credentials, or any of its infrastructure.
 
 ### Why This Matters
 

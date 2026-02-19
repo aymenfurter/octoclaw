@@ -39,7 +39,7 @@ WORKDIR /app
 
 # Install Python deps first (cached unless pyproject.toml changes)
 COPY pyproject.toml ./
-RUN mkdir -p octoclaw && touch octoclaw/__init__.py \
+RUN mkdir -p polyclaw && touch polyclaw/__init__.py \
     && pip install --no-cache-dir -e . \
     && (chmod +x /usr/local/lib/python3.12/site-packages/copilot/bin/copilot || true)
 
@@ -57,11 +57,11 @@ RUN ARCH=$(dpkg --print-architecture) \
     && dpkg -i /tmp/cloudflared.deb \
     && rm /tmp/cloudflared.deb
 
-# Copy the backend from app/runtime/ into the octoclaw/ package directory
-# so existing entry points (octoclaw.server:main etc.) keep working.
-COPY app/runtime/ octoclaw/
+# Copy the backend from app/runtime/ into the polyclaw/ package directory
+# so existing entry points (polyclaw.server:main etc.) keep working.
+COPY app/runtime/ polyclaw/
 
-# Reinstall so console-script entry points (octoclaw-admin etc.) are built
+# Reinstall so console-script entry points (polyclaw-admin etc.) are built
 # against the real source tree, not the stub __init__.py used for dep caching.
 RUN pip install --no-cache-dir --no-deps -e .
 COPY skills/ skills/
@@ -78,8 +78,8 @@ COPY entrypoint.sh /app/entrypoint.sh
 RUN chmod +x /app/entrypoint.sh
 
 VOLUME /data
-ENV OCTOCLAW_DATA_DIR=/data
-ENV OCTOCLAW_CONTAINER=1
+ENV POLYCLAW_DATA_DIR=/data
+ENV POLYCLAW_CONTAINER=1
 
 EXPOSE 8080 3978
 

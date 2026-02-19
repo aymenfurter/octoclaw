@@ -74,13 +74,13 @@ export class SetupScreen extends Screen {
     // -- Bot configuration form --
     const configBox = this.createSection(" Bot Configuration ");
     configBox.add(this.createLabel("Resource Group:"));
-    this.botRgInput = this.createInput("octoclaw-rg", "octoclaw-rg");
+    this.botRgInput = this.createInput("polyclaw-rg", "polyclaw-rg");
     configBox.add(this.botRgInput);
     configBox.add(this.createLabel("Location:"));
     this.botLocationInput = this.createInput("eastus", "eastus");
     configBox.add(this.botLocationInput);
     configBox.add(this.createLabel("Bot Display Name:"));
-    this.botNameInput = this.createInput("octoclaw", "octoclaw");
+    this.botNameInput = this.createInput("polyclaw", "polyclaw");
     configBox.add(this.botNameInput);
     configBox.add(this.createLabel("Telegram Token (optional):"));
     this.tgTokenInput = this.createInput("Bot token from @BotFather");
@@ -168,9 +168,9 @@ export class SetupScreen extends Screen {
   private async loadBotConfig(): Promise<void> {
     try {
       const cfg = await this.api.getBotConfig();
-      this.botRgInput.value = cfg.resource_group || "octoclaw-rg";
+      this.botRgInput.value = cfg.resource_group || "polyclaw-rg";
       this.botLocationInput.value = cfg.location || "eastus";
-      this.botNameInput.value = cfg.display_name || "octoclaw";
+      this.botNameInput.value = cfg.display_name || "polyclaw";
     } catch { /* use defaults */ }
   }
 
@@ -352,9 +352,9 @@ export class SetupScreen extends Screen {
     try {
       const body: Record<string, unknown> = {
         bot: {
-          resource_group: this.botRgInput.value || "octoclaw-rg",
+          resource_group: this.botRgInput.value || "polyclaw-rg",
           location: this.botLocationInput.value || "eastus",
-          display_name: this.botNameInput.value || "octoclaw",
+          display_name: this.botNameInput.value || "polyclaw",
         },
         telegram: {} as Record<string, string>,
       };

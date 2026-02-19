@@ -3,7 +3,7 @@ title: "Features"
 weight: 40
 ---
 
-Octoclaw provides a rich set of capabilities beyond basic chat.
+Polyclaw provides a rich set of capabilities beyond basic chat.
 
 ## Core Features
 

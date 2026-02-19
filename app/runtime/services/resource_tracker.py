@@ -11,7 +11,7 @@ from .azure import AzureCLI
 
 logger = logging.getLogger(__name__)
 
-OCTOCLAW_RG_PREFIXES = ("octoclaw-",)
+POLYCLAW_RG_PREFIXES = ("polyclaw-",)
 
 
 @dataclass
@@ -56,9 +56,9 @@ class ResourceTracker:
             return result
         for g in groups:
             tags = g.get("tags") or {}
-            dtag = tags.get("octoclaw_deploy", "")
+            dtag = tags.get("polyclaw_deploy", "")
             name = g.get("name", "")
-            if dtag or any(name.startswith(p) for p in OCTOCLAW_RG_PREFIXES):
+            if dtag or any(name.startswith(p) for p in POLYCLAW_RG_PREFIXES):
                 result.append(ResourceGroup(
                     name=name, location=g.get("location", ""),
                     tags=tags, deploy_tag=dtag,
@@ -75,12 +75,12 @@ class ResourceTracker:
             result.append(AzureResource(
                 id=r.get("id", ""), name=r.get("name", ""), resource_group=rg,
                 resource_type=r.get("type", ""), location=r.get("location", ""),
-                tags=tags, deploy_tag=tags.get("octoclaw_deploy", ""),
+                tags=tags, deploy_tag=tags.get("polyclaw_deploy", ""),
             ))
         return result
 
-    def discover_all_octoclaw_resources(self) -> list[AzureResource]:
-        resources = self._az.json("resource", "list", "--tag", "octoclaw_deploy") or []
+    def discover_all_polyclaw_resources(self) -> list[AzureResource]:
+        resources = self._az.json("resource", "list", "--tag", "polyclaw_deploy") or []
         result: list[AzureResource] = []
         if not isinstance(resources, list):
             return result
@@ -96,7 +96,7 @@ class ResourceTracker:
             result.append(AzureResource(
                 id=rid, name=r.get("name", ""), resource_group=rg,
                 resource_type=r.get("type", ""), location=r.get("location", ""),
-                tags=tags, deploy_tag=tags.get("octoclaw_deploy", ""),
+                tags=tags, deploy_tag=tags.get("polyclaw_deploy", ""),
             ))
         return result
 
@@ -125,7 +125,7 @@ class ResourceTracker:
                     result.orphaned_resources.extend(resources)
                 result.orphaned_groups.append(g)
 
-        all_tagged = self.discover_all_octoclaw_resources()
+        all_tagged = self.discover_all_polyclaw_resources()
         tracked_ids = {r.id for r in result.tracked_resources}
         for r in all_tagged:
             if r.id not in tracked_ids:

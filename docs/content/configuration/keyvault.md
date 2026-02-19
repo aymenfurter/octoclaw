@@ -5,17 +5,17 @@ weight: 1
 
 # Key Vault Integration
 
-Octoclaw integrates with Azure Key Vault to separate sensitive credentials from the agent's working data. The `.env` file still holds non-secret configuration, but secrets are stored in Key Vault instead. The agent can still read resolved secrets at runtime, so Key Vault does not hide them from the LLM. The value is in keeping secrets out of the workspace filesystem, which reduces the risk of accidentally copying, committing, or leaking them alongside regular configuration and data.
+Polyclaw integrates with Azure Key Vault to separate sensitive credentials from the agent's working data. The `.env` file still holds non-secret configuration, but secrets are stored in Key Vault instead. The agent can still read resolved secrets at runtime, so Key Vault does not hide them from the LLM. The value is in keeping secrets out of the workspace filesystem, which reduces the risk of accidentally copying, committing, or leaking them alongside regular configuration and data.
 
 ## Configuration
 
 Set the Key Vault reference in your `.env`:
 
 ```bash
-KEY_VAULT_URL=https://octoclaw-kv.vault.azure.net
+KEY_VAULT_URL=https://polyclaw-kv.vault.azure.net
 
 # Optional: used for firewall allowlisting only
-KEY_VAULT_NAME=octoclaw-kv
+KEY_VAULT_NAME=polyclaw-kv
 KEY_VAULT_RG=my-rg
 ```
 
@@ -23,7 +23,7 @@ KEY_VAULT_RG=my-rg
 
 ```bash
 az keyvault secret set \
-  --vault-name octoclaw-kv \
+  --vault-name polyclaw-kv \
   --name github-token \
   --value "ghp_xxxxxxxxxxxx"
 ```
@@ -56,7 +56,7 @@ Key Vault access uses `DefaultAzureCredential`, which automatically tries manage
 
 ## Firewall Allowlisting
 
-When `KEY_VAULT_RG` is set, Octoclaw automatically adds the current machine's public IP to the Key Vault firewall rules. This is useful for local development against a locked-down vault.
+When `KEY_VAULT_RG` is set, Polyclaw automatically adds the current machine's public IP to the Key Vault firewall rules. This is useful for local development against a locked-down vault.
 
 ## write_env() Flow
 

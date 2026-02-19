@@ -5,7 +5,7 @@ weight: 2
 
 # Creating Plugins
 
-Plugins are self-contained packages that extend Octoclaw with new skills and capabilities.
+Plugins are self-contained packages that extend Polyclaw with new skills and capabilities.
 
 ## Plugin Structure
 
@@ -26,7 +26,7 @@ The manifest defines the plugin metadata, dependencies, and bundled skills.
 {
   "id": "my-plugin",
   "name": "My Plugin",
-  "description": "A custom plugin for Octoclaw",
+  "description": "A custom plugin for Polyclaw",
   "version": "1.0.0",
   "author": "Your Name",
   "homepage": "https://github.com/you/my-plugin",
@@ -63,25 +63,25 @@ The manifest defines the plugin metadata, dependencies, and bundled skills.
 
 ## Plugin Locations
 
-Octoclaw discovers plugins from two directories:
+Polyclaw discovers plugins from two directories:
 
 | Location | Type | Description |
 |---|---|---|
-| `plugins/` (project root) | Built-in | Shipped with Octoclaw, read-only |
-| `~/.octoclaw/plugins/` | User | Installed by user, read-write |
+| `plugins/` (project root) | Built-in | Shipped with Polyclaw, read-only |
+| `~/.polyclaw/plugins/` | User | Installed by user, read-write |
 
 ## Plugin Lifecycle
 
 ### Installation
 
 1. Upload a ZIP file through the web dashboard or place the directory in the plugins folder
-2. Octoclaw discovers the `PLUGIN.json` manifest
+2. Polyclaw discovers the `PLUGIN.json` manifest
 3. The plugin appears in the plugin registry
 
 ### Enabling
 
 1. User enables the plugin via dashboard, slash command, or API
-2. Skill directories are copied to `~/.octoclaw/skills/`
+2. Skill directories are copied to `~/.polyclaw/skills/`
 
 ### Setup Flow
 
@@ -94,7 +94,7 @@ If `setup_skill` is defined:
 
 ### Disabling
 
-1. Plugin skill directories are removed from `~/.octoclaw/skills/`
+1. Plugin skill directories are removed from `~/.polyclaw/skills/`
 2. Plugin state is updated to disabled
 
 ## Managing Plugins

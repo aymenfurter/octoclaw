@@ -1,0 +1,7 @@
+name = "polyclaw"
+license = "MIT"
+min_version = "0.80.0"
+
+[author]
+  name = "Polyclaw"
+  homepage = "https://aymenfurter.github.io/polyclaw/"

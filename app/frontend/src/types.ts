@@ -1,5 +1,5 @@
 /* -----------------------------------------------------------------------
-   TypeScript types mirroring the octoclaw backend API responses.
+   TypeScript types mirroring the polyclaw backend API responses.
    ----------------------------------------------------------------------- */
 
 // -- Auth ----------------------------------------------------------------

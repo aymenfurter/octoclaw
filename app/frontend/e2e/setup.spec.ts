@@ -9,7 +9,7 @@ test.describe('Setup Wizard', () => {
 
   test('renders wizard with three steps', async ({ page }) => {
     await page.goto('/setup')
-    await expect(page.getByAltText('octoclaw')).toBeVisible()
+    await expect(page.getByAltText('polyclaw')).toBeVisible()
     // Step labels are always visible regardless of current step
     await expect(page.getByText('Azure Authentication').first()).toBeVisible()
     await expect(page.getByText('GitHub Copilot Auth')).toBeVisible()

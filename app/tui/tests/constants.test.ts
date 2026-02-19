@@ -175,7 +175,7 @@ describe("MAX_AC_VISIBLE", () => {
 describe("DISCLAIMER_FLAG", () => {
   test("is a non-empty file path", () => {
     expect(DISCLAIMER_FLAG.length).toBeGreaterThan(0);
-    expect(DISCLAIMER_FLAG).toContain("octoclaw_disclaimer");
+    expect(DISCLAIMER_FLAG).toContain("polyclaw_disclaimer");
   });
 });
 

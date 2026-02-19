@@ -252,7 +252,7 @@ class TestFoundryIQConfigStore:
 class TestInfraConfigStore:
     def test_defaults(self, tmp_path: Path) -> None:
         store = InfraConfigStore(path=tmp_path / "infra.json")
-        assert store.bot.resource_group == "octoclaw-rg"
+        assert store.bot.resource_group == "polyclaw-rg"
         assert not store.telegram_configured
         assert not store.voice_call_configured
 

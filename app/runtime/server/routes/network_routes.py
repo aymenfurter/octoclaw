@@ -32,7 +32,7 @@ def _detect_deploy_mode() -> str:
     """Return 'docker', 'aca', or 'local' based on runtime environment."""
     if os.getenv("WEBSITE_SITE_NAME") or os.getenv("CONTAINER_APP_NAME"):
         return "aca"
-    if os.getenv("OCTOCLAW_CONTAINER") == "1":
+    if os.getenv("POLYCLAW_CONTAINER") == "1":
         return "docker"
     return "local"
 

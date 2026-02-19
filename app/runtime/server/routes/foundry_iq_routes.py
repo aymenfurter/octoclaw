@@ -24,7 +24,7 @@ from ...util.async_helpers import run_sync
 
 logger = logging.getLogger(__name__)
 
-_DEFAULT_FIQ_RG = "octoclaw-foundryiq-rg"
+_DEFAULT_FIQ_RG = "polyclaw-foundryiq-rg"
 
 
 class FoundryIQRoutes:
@@ -123,11 +123,11 @@ class FoundryIQRoutes:
         rg = body.get("resource_group", "").strip() or _DEFAULT_FIQ_RG
         search_name = (
             body.get("search_name", "").strip()
-            or f"octoclaw-search-{_secrets.token_hex(4)}"
+            or f"polyclaw-search-{_secrets.token_hex(4)}"
         )
         openai_name = (
             body.get("openai_name", "").strip()
-            or f"octoclaw-aoai-{_secrets.token_hex(4)}"
+            or f"polyclaw-aoai-{_secrets.token_hex(4)}"
         )
         embedding_model = body.get("embedding_model", "text-embedding-3-large").strip()
         embedding_dimensions = int(body.get("embedding_dimensions", 3072))
@@ -165,7 +165,7 @@ class FoundryIQRoutes:
             embedding_api_key=openai_key,
             embedding_model=deployment_name,
             embedding_dimensions=embedding_dimensions,
-            index_name="octoclaw-memories",
+            index_name="polyclaw-memories",
             provisioned=True,
             enabled=True,
         )
@@ -280,7 +280,7 @@ class FoundryIQRoutes:
         if self._deploy_store:
             rec = self._deploy_store.current_local()
             if rec:
-                tag_args = ["--tags", f"octoclaw_deploy={rec.tag}"]
+                tag_args = ["--tags", f"polyclaw_deploy={rec.tag}"]
 
         result = await run_sync(
             self._az.json,

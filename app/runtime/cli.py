@@ -22,7 +22,7 @@ _COMMANDS = {"/quit", "/exit", "/new"}
 
 async def _main() -> None:
     cfg.ensure_dirs()
-    console.print("[bold green]octoclaw[/bold green] v4\nType [bold]/quit[/bold] to exit, [bold]/new[/bold] for a new session.\n")
+    console.print("[bold green]polyclaw[/bold green] v4\nType [bold]/quit[/bold] to exit, [bold]/new[/bold] for a new session.\n")
 
     agent = Agent()
     await agent.start()

@@ -359,7 +359,7 @@ function SandboxTab({
   const [loading, setLoading] = useState<Record<string, boolean>>({})
   const [mode, setMode] = useState<SandboxMode>('deploy')
   const [deployLocation, setDeployLocation] = useState('eastus')
-  const [deployRg, setDeployRg] = useState('octoclaw-sandbox-rg')
+  const [deployRg, setDeployRg] = useState('polyclaw-sandbox-rg')
 
   const saveSandbox = async () => {
     setLoading(p => ({ ...p, save: true }))
@@ -606,7 +606,7 @@ function MemoryTab({ azureLoggedIn }: { azureLoggedIn: boolean }) {
   const [loading, setLoading] = useState<Record<string, boolean>>({})
   const [mode, setMode] = useState<MemoryMode>('deploy')
   const [deployLocation, setDeployLocation] = useState('eastus')
-  const [deployRg, setDeployRg] = useState('octoclaw-foundryiq-rg')
+  const [deployRg, setDeployRg] = useState('polyclaw-foundryiq-rg')
 
   const loadConfig = useCallback(async () => {
     try {
@@ -809,7 +809,7 @@ function VoiceTab({ status, onReload }: { status: SetupStatus | null; onReload: 
 
   // Deploy-new state
   const [deployLocation, setDeployLocation] = useState('swedencentral')
-  const [deployRg, setDeployRg] = useState('octoclaw-voice-rg')
+  const [deployRg, setDeployRg] = useState('polyclaw-voice-rg')
 
   // Phone config state
   const [sourcePhone, setSourcePhone] = useState('')
@@ -1417,7 +1417,7 @@ function NetworkTab({ tunnelRestricted, onReload }: { tunnelRestricted: boolean;
               </svg>
             </div>
             <div className="network__topo-node-label">
-              <strong>Octoclaw Server</strong>
+              <strong>Polyclaw Server</strong>
               <span>Port {info.admin_port}</span>
               {info.deploy_mode === 'docker' && <span className="text-muted">Container</span>}
               {info.deploy_mode === 'aca' && <span className="text-muted">Azure Container Apps</span>}

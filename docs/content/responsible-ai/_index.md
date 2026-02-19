@@ -3,24 +3,24 @@ title: "Security, Governance & Responsible AI"
 weight: 25
 ---
 
-Octoclaw is in **early preview**. Hardening the security posture is the next major focus area for the project. If you choose to run Octoclaw today, treat it as experimental software and read this page carefully.
+Polyclaw is in **early preview**. Hardening the security posture is the next major focus area for the project. If you choose to run Polyclaw today, treat it as experimental software and read this page carefully.
 
 ---
 
 ## Understand the Risks
 
-Octoclaw is an autonomous agent. That means it can act without asking you first -- sending messages, writing files, executing code, making API calls, and even placing phone calls on your behalf. This is powerful, but it comes with real consequences if something goes wrong.
+Polyclaw is an autonomous agent. That means it can act without asking you first -- sending messages, writing files, executing code, making API calls, and even placing phone calls on your behalf. This is powerful, but it comes with real consequences if something goes wrong.
 
 **What can go wrong:**
 
 - **Unintended actions.** The agent decides what tools to call based on its prompt and conversation context. A misunderstood instruction can lead to unwanted commits, messages sent to the wrong person, or files overwritten.
-- **Credential exposure.** Octoclaw operates under your identity. Your GitHub token, Azure credentials, and API keys are available to the agent. A prompt injection attack or a badly written skill could exfiltrate or misuse them.
+- **Credential exposure.** Polyclaw operates under your identity. Your GitHub token, Azure credentials, and API keys are available to the agent. A prompt injection attack or a badly written skill could exfiltrate or misuse them.
 - **Cost overruns.** The agent can spin up Azure resources, make API calls, and schedule recurring tasks. Without monitoring, a runaway loop could generate unexpected cloud bills.
 - **Code execution.** The agent can execute arbitrary code on your machine (or in a sandbox). Generated code is not reviewed by a human before execution by default.
 - **Data leakage.** Conversations, files, and tool outputs pass through the Copilot SDK and any configured channels. Sensitive data in your workspace could be included in agent context unintentionally.
 - **Availability of external services.** The agent depends on the GitHub Copilot SDK, Azure services, and third-party APIs. Outages in any of these can cause failures or degraded behavior.
 
-This is not a theoretical list. These are real failure modes of autonomous agents. You should be comfortable with these risks before deploying Octoclaw in any environment that matters.
+This is not a theoretical list. These are real failure modes of autonomous agents. You should be comfortable with these risks before deploying Polyclaw in any environment that matters.
 
 ---
 
@@ -72,7 +72,7 @@ The following areas are known gaps that the project intends to address:
 
 - **Rate limiting.** There are no built-in rate limits on API calls, tool executions, or scheduled tasks.
 - **Fine-grained permissions.** The agent currently has access to all configured credentials. There is no per-tool or per-skill scoping of secrets.
-- **Multi-tenant isolation.** Octoclaw is designed for single-operator use. Running it for multiple users would require significant changes.
+- **Multi-tenant isolation.** Polyclaw is designed for single-operator use. Running it for multiple users would require significant changes.
 
 Security hardening is the next major development priority.
 
@@ -80,7 +80,7 @@ Security hardening is the next major development priority.
 
 ## Recommendations for Early Adopters
 
-1. **Do not run Octoclaw against production accounts or infrastructure.** Use a dedicated test environment with scoped credentials.
+1. **Do not run Polyclaw against production accounts or infrastructure.** Use a dedicated test environment with scoped credentials.
 2. **Set a strong `ADMIN_SECRET`** and store it in a key vault rather than in plaintext.
 3. **Enable `TUNNEL_RESTRICTED`** to limit what is exposed through the tunnel.
 4. **Set `TELEGRAM_WHITELIST`** if you use the Telegram channel.

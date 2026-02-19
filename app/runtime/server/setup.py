@@ -254,9 +254,9 @@ class SetupRoutes:
     async def save_bot_config(self, req: web.Request) -> web.Response:
         body = await req.json()
         self._store.save_bot(
-            resource_group=body.get("resource_group", "octoclaw-rg"),
+            resource_group=body.get("resource_group", "polyclaw-rg"),
             location=body.get("location", "eastus"),
-            display_name=body.get("display_name", "octoclaw"),
+            display_name=body.get("display_name", "polyclaw"),
             bot_handle=body.get("bot_handle", ""),
         )
         return _ok("Bot configuration saved")
@@ -307,9 +307,9 @@ class SetupRoutes:
 
         bot = body.get("bot", {})
         self._store.save_bot(
-            resource_group=bot.get("resource_group", "octoclaw-rg"),
+            resource_group=bot.get("resource_group", "polyclaw-rg"),
             location=bot.get("location", "eastus"),
-            display_name=bot.get("display_name", "octoclaw"),
+            display_name=bot.get("display_name", "polyclaw"),
             bot_handle=bot.get("bot_handle", ""),
         )
         steps.append({

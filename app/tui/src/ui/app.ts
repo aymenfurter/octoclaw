@@ -129,7 +129,7 @@ export class App {
 
   private buildStartupUI(): void {
     this.startupTitle = new TextRenderable(this.renderer, {
-      content: " octoclaw v3  |  Starting up...",
+      content: " polyclaw v3  |  Starting up...",
       fg: Colors.accent,
       width: "100%",
       height: 1,
@@ -240,7 +240,7 @@ export class App {
 
     // 1) Build
     this.setStatus("\x1b[33m●\x1b[0m Building Docker image...");
-    this.appendLog("$ docker build --progress=plain -t octoclaw .");
+    this.appendLog("$ docker build --progress=plain -t polyclaw .");
 
     const buildOk = await buildImage((line) => this.appendLog(line));
     if (!buildOk) {
@@ -338,7 +338,7 @@ export class App {
 
     // Title bar
     this.titleBar = new TextRenderable(this.renderer, {
-      content: " octoclaw v3  |  Autonomous AI Copilot",
+      content: " polyclaw v3  |  Autonomous AI Copilot",
       fg: Colors.accent,
       width: "100%",
       height: 1,
@@ -440,9 +440,9 @@ export class App {
         `Tunnel: ${tunnelOk ? "\x1b[32mOK\x1b[0m" : "\x1b[90m--\x1b[0m"}`,
       ];
       const dot = azOk && ghOk ? "\x1b[32m●\x1b[0m" : "\x1b[33m●\x1b[0m";
-      this.titleBar.content = ` ${dot} octoclaw v3  |  ${pieces.join("  ")}`;
+      this.titleBar.content = ` ${dot} polyclaw v3  |  ${pieces.join("  ")}`;
     } catch {
-      this.titleBar.content = " \x1b[31m●\x1b[0m octoclaw v3  |  Server unreachable";
+      this.titleBar.content = " \x1b[31m●\x1b[0m polyclaw v3  |  Server unreachable";
     }
   }
 }

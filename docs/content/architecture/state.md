@@ -5,7 +5,7 @@ weight: 3
 
 # State Management
 
-Octoclaw uses a file-based state system with JSON stores. All state files live under `OCTOCLAW_DATA_DIR` (default: `~/.octoclaw/`).
+Polyclaw uses a file-based state system with JSON stores. All state files live under `POLYCLAW_DATA_DIR` (default: `~/.polyclaw/`).
 
 ## State Modules
 
@@ -94,5 +94,5 @@ Manages autonomous proactive messaging:
 
 - **No database required** -- everything is flat files for simplicity and portability
 - **Human-readable** -- JSON and Markdown files can be inspected and edited manually
-- **Docker-friendly** -- mount `~/.octoclaw` as a volume for persistence
+- **Docker-friendly** -- mount `~/.polyclaw` as a volume for persistence
 - **Atomic writes** -- state modules use write-then-rename for crash safety

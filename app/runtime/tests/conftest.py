@@ -12,8 +12,8 @@ import pytest
 def _isolate_data_dir(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> Path:
     data_dir = tmp_path / "data"
     data_dir.mkdir()
-    monkeypatch.setenv("OCTOCLAW_DATA_DIR", str(data_dir))
-    monkeypatch.setenv("OCTOCLAW_PROJECT_ROOT", str(tmp_path))
+    monkeypatch.setenv("POLYCLAW_DATA_DIR", str(data_dir))
+    monkeypatch.setenv("POLYCLAW_PROJECT_ROOT", str(tmp_path))
     monkeypatch.setenv("DOTENV_PATH", str(tmp_path / ".env"))
     return data_dir
 

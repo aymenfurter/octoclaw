@@ -14,7 +14,7 @@ from ..util.singletons import register_singleton
 logger = logging.getLogger(__name__)
 
 _DEFAULT_PROFILE: dict[str, Any] = {
-    "name": "octoclaw",
+    "name": "polyclaw",
     "emoji": "",
     "location": "",
     "emotional_state": "neutral",

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Render the OCTOCLAW block-letter logo from the TUI (cli/src/ui.ts LOGO_TEXT)
+Render the POLYCLAW block-letter logo from the TUI (cli/src/ui.ts LOGO_TEXT)
 pixel-for-pixel into a transparent PNG with the same gold gradient.
 
 Each '\u2588' (full-block) in a row becomes a filled pixel; spaces become
@@ -85,7 +85,7 @@ def render_headertext(output: str | Path, scale: int = PIXEL_SCALE) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Render TUI OCTOCLAW block-letter logo as a transparent PNG"
+        description="Render TUI POLYCLAW block-letter logo as a transparent PNG"
     )
     default_out = (
         Path(__file__).resolve().parent.parent

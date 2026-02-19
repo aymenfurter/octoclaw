@@ -3,13 +3,13 @@ title: "Plugins & MCP"
 weight: 50
 ---
 
-Octoclaw extends its capabilities through two complementary systems: **Plugins** and **MCP Servers**.
+Polyclaw extends its capabilities through two complementary systems: **Plugins** and **MCP Servers**.
 
 ## What is MCP?
 
 The **Model Context Protocol** (MCP) is an open standard for connecting AI models to external tools and data sources. MCP servers expose callable functions that the LLM can invoke during conversations.
 
-Octoclaw supports four MCP server types:
+Polyclaw supports four MCP server types:
 
 | Type | Description |
 |---|---|

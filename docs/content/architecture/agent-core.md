@@ -5,7 +5,7 @@ weight: 1
 
 # Agent Core
 
-The agent core is the heart of Octoclaw. It wraps the GitHub Copilot SDK to provide streaming AI conversations with tool execution.
+The agent core is the heart of Polyclaw. It wraps the GitHub Copilot SDK to provide streaming AI conversations with tool execution.
 
 ## CopilotAgent
 
@@ -83,7 +83,7 @@ Prompt templates are Markdown files stored in `app/runtime/templates/`. They sup
 
 ## Multi-Model Support
 
-Octoclaw supports any model available through the Copilot SDK. The default model is configured via `COPILOT_MODEL`. Users can switch models at runtime:
+Polyclaw supports any model available through the Copilot SDK. The default model is configured via `COPILOT_MODEL`. Users can switch models at runtime:
 
 - Via slash command: `/model <model-name>`
 - Via the web dashboard model selector

@@ -1,8 +1,8 @@
-# AGENTS.md -- Custom Instructions for Octoclaw
+# AGENTS.md -- Custom Instructions for Polyclaw
 
 ## Project Overview
 
-Octoclaw is an autonomous AI copilot built on the GitHub Copilot SDK. It runs outside the IDE: browser, terminal, messaging apps, and phone calls. The codebase has three main surfaces: a Python backend (`app/runtime/`), a React + TypeScript frontend (`app/frontend/`), and a Node.js terminal UI (`app/tui/`).
+Polyclaw is an autonomous AI copilot built on the GitHub Copilot SDK. It runs outside the IDE: browser, terminal, messaging apps, and phone calls. The codebase has three main surfaces: a Python backend (`app/runtime/`), a React + TypeScript frontend (`app/frontend/`), and a Node.js terminal UI (`app/tui/`).
 
 ## Repository Layout
 

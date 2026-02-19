@@ -15,9 +15,9 @@ logger = logging.getLogger(__name__)
 
 @dataclass
 class BotInfraConfig:
-    resource_group: str = "octoclaw-rg"
+    resource_group: str = "polyclaw-rg"
     location: str = "eastus"
-    display_name: str = "octoclaw"
+    display_name: str = "polyclaw"
     bot_handle: str = ""
 
 

@@ -1,14 +1,14 @@
-baseURL        = "https://aymenfurter.github.io/octoclaw/"
+baseURL        = "https://aymenfurter.github.io/polyclaw/"
 languageCode   = "en-us"
-title          = "Octoclaw Docs"
-theme          = "octoclaw"
+title          = "Polyclaw Docs"
+theme          = "polyclaw"
 enableGitInfo  = true
 canonifyURLs   = true
 
 [params]
   description = "Autonomous AI copilot powered by GitHub Copilot SDK"
   version     = "4.0.0"
-  github      = "https://github.com/aymenfurter/octoclaw"
+  github      = "https://github.com/aymenfurter/polyclaw"
 
 [markup]
   [markup.highlight]

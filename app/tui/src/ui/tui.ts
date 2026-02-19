@@ -57,7 +57,7 @@ export async function launchTUI(
   target: DeployTarget,
 ): Promise<void> {
   // Error logging (TUI garbles stderr)
-  const errorLog = Bun.file("/tmp/octoclaw-cli-error.log");
+  const errorLog = Bun.file("/tmp/polyclaw-cli-error.log");
   const logError = async (label: string, err: unknown) => {
     const msg = `[${new Date().toISOString()}] ${label}: ${err instanceof Error ? err.stack || err.message : String(err)}\n`;
     await Bun.write(errorLog, msg);
@@ -895,7 +895,7 @@ export async function launchTUI(
   //  Phase 1+2: Deploy
   // =====================================================================
 
-  const deployLabel = target.lifecycleTied ? "Building octoclaw v3..." : `Deploying to ${target.name}...`;
+  const deployLabel = target.lifecycleTied ? "Building polyclaw v3..." : `Deploying to ${target.name}...`;
   addLogLine(deployLabel);
   activityText = target.lifecycleTied ? "Building" : "Deploying";
   refreshProgressBar();

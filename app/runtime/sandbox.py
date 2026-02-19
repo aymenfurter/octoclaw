@@ -88,7 +88,7 @@ class SandboxExecutor:
                 if not await self._upload_bytes(http, endpoint, session_id, "agent_data.zip", data_zip, headers):
                     return self._result(False, "Data upload failed", start, session_id)
 
-            if not await self._upload_bytes(http, endpoint, session_id, "octoclaw_code.zip", code_zip, headers):
+            if not await self._upload_bytes(http, endpoint, session_id, "polyclaw_code.zip", code_zip, headers):
                 return self._result(False, "Code upload failed", start, session_id)
 
             bootstrap = self._build_bootstrap_script(command, has_data=data_zip is not None, env_vars=env_vars)
@@ -146,7 +146,7 @@ class SandboxExecutor:
         project_root = cfg.project_root
         buf = io.BytesIO()
         with zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as zf:
-            for src_dir in ("octoclaw", "app/runtime"):
+            for src_dir in ("polyclaw", "app/runtime"):
                 full = project_root / src_dir
                 if not full.is_dir():
                     continue
@@ -212,12 +212,12 @@ class SandboxExecutor:
                 "fi", "",
             ]
         lines += [
-            "mkdir -p /mnt/data/octoclaw_src",
-            'python3 -c "import zipfile; zipfile.ZipFile(\'octoclaw_code.zip\').extractall(\'/mnt/data/octoclaw_src\')"',
-            "", "cd /mnt/data/octoclaw_src",
+            "mkdir -p /mnt/data/polyclaw_src",
+            'python3 -c "import zipfile; zipfile.ZipFile(\'polyclaw_code.zip\').extractall(\'/mnt/data/polyclaw_src\')"',
+            "", "cd /mnt/data/polyclaw_src",
             "pip install -e . --quiet 2>/dev/null || true",
             "cd /mnt/data", "",
-            'export OCTOCLAW_DATA_DIR="$HOME"',
+            'export POLYCLAW_DATA_DIR="$HOME"',
         ]
         if env_vars:
             for k, v in env_vars.items():
@@ -337,7 +337,7 @@ class SandboxExecutor:
                 code_zip = self._create_code_zip()
             except Exception as exc:
                 return self._result(False, f"Code archive failed: {exc}", start, session_id)
-            if not await self._upload_bytes(http, endpoint, session_id, "octoclaw_code.zip", code_zip, headers):
+            if not await self._upload_bytes(http, endpoint, session_id, "polyclaw_code.zip", code_zip, headers):
                 return self._result(False, "Code upload failed", start, session_id)
 
             setup = self._build_bootstrap_script("echo 'Session bootstrapped OK'", has_data=data_zip is not None)

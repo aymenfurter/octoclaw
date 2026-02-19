@@ -16,7 +16,7 @@ from ...util.async_helpers import run_sync
 
 logger = logging.getLogger(__name__)
 
-_DEFAULT_SANDBOX_RG = "octoclaw-sandbox-rg"
+_DEFAULT_SANDBOX_RG = "polyclaw-sandbox-rg"
 
 
 class SandboxRoutes:
@@ -128,7 +128,7 @@ class SandboxRoutes:
         rg = body.get("resource_group", "").strip() or _DEFAULT_SANDBOX_RG
         pool_name = (
             body.get("pool_name", "").strip()
-            or f"octoclaw-sandbox-{_secrets.token_hex(4)}"
+            or f"polyclaw-sandbox-{_secrets.token_hex(4)}"
         )
 
         steps: list[dict[str, Any]] = []
@@ -245,7 +245,7 @@ class SandboxRoutes:
         if self._deploy_store:
             rec = self._deploy_store.current_local()
             if rec:
-                tag_args = ["--tags", f"octoclaw_deploy={rec.tag}"]
+                tag_args = ["--tags", f"polyclaw_deploy={rec.tag}"]
 
         result = await run_sync(
             self._az.json,

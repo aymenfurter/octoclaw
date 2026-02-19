@@ -28,8 +28,8 @@ export default function Sidebar({ status, collapsed, onToggle }: Props) {
         </button>
         {!collapsed && (
           <div className="sidebar__brand">
-            <img src="/static/logo.png" alt="Octoclaw" className="sidebar__logo" onError={e => (e.currentTarget.style.display = 'none')} />
-            <span className="sidebar__title">Octoclaw</span>
+            <img src="/static/logo.png" alt="Polyclaw" className="sidebar__logo" onError={e => (e.currentTarget.style.display = 'none')} />
+            <span className="sidebar__title">Polyclaw</span>
           </div>
         )}
       </div>

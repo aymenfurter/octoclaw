@@ -3,7 +3,7 @@ title: "Deployment"
 weight: 80
 ---
 
-Octoclaw supports two deployment targets, both managed through the TUI or CLI tooling.
+Polyclaw supports two deployment targets, both managed through the TUI or CLI tooling.
 
 ## Deployment Targets
 
@@ -16,7 +16,7 @@ Both targets are selected through the TUI deployment picker when you run `./scri
 
 ## User Interfaces
 
-Once deployed, Octoclaw exposes three interfaces for interaction:
+Once deployed, Polyclaw exposes three interfaces for interaction:
 
 | Interface | Description |
 |---|---|

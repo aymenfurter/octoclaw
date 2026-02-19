@@ -15,7 +15,7 @@ class WorkspaceHandler:
     """Sandboxed file browser over the data directory."""
 
     ROOTS: dict[str, Path] = {
-        "data": Path(os.getenv("OCTOCLAW_DATA_DIR", str(Path.home() / ".octoclaw"))),
+        "data": Path(os.getenv("POLYCLAW_DATA_DIR", str(Path.home() / ".polyclaw"))),
     }
 
     def register(self, router: web.UrlDispatcher) -> None:

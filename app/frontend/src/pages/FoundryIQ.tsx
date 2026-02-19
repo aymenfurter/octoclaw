@@ -8,7 +8,7 @@ export function FoundryIQContent() {
   const [loading, setLoading] = useState(true)
   const [docCount, setDocCount] = useState<string>('--')
   const [form, setForm] = useState({
-    search_endpoint: '', search_api_key: '', index_name: 'octoclaw-memories',
+    search_endpoint: '', search_api_key: '', index_name: 'polyclaw-memories',
     embedding_endpoint: '', embedding_api_key: '', embedding_model: 'text-embedding-3-large',
     embedding_dimensions: '3072', index_schedule: 'daily', enabled: false,
   })
@@ -25,7 +25,7 @@ export function FoundryIQContent() {
       setForm({
         search_endpoint: cfg.search_endpoint || '',
         search_api_key: '',
-        index_name: cfg.index_name || 'octoclaw-memories',
+        index_name: cfg.index_name || 'polyclaw-memories',
         embedding_endpoint: cfg.embedding_endpoint || '',
         embedding_api_key: '',
         embedding_model: cfg.embedding_model || 'text-embedding-3-large',

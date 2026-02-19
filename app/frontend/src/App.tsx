@@ -29,7 +29,7 @@ function Loader() {
 }
 
 export default function App() {
-  const [disclaimerOk, setDisclaimerOk] = useState(!!localStorage.getItem('octoclaw_disclaimer_accepted'))
+  const [disclaimerOk, setDisclaimerOk] = useState(!!localStorage.getItem('polyclaw_disclaimer_accepted'))
   const { authenticated, loading, login } = useAuth()
   const { needsSetup } = useStatus(30_000)
   const [panelOpen, setPanelOpen] = useState(false)

@@ -15,7 +15,7 @@ export default function LoginOverlay({ onLogin }: Props) {
   return (
     <div className="login-overlay">
       <div className="login-card">
-        <img src="/logo.png" alt="octoclaw" className="login-card__logo" />
+        <img src="/logo.png" alt="polyclaw" className="login-card__logo" />
         <p className="login-card__subtitle">Enter your admin secret to continue</p>
         <form onSubmit={handleSubmit} className="login-card__form">
           <input

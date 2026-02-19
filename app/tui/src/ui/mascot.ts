@@ -57,7 +57,7 @@ export const MASCOT_CELLS = buildMascotCells();
 
 /**
  * Create 5 TextRenderable lines that combine the mascot and the
- * OCTOCLAW block text logo (one mascot line + logo text per row).
+ * POLYCLAW block text logo (one mascot line + logo text per row).
  *
  * Returns the array so the caller can add them to a header container.
  */
@@ -104,7 +104,7 @@ export function createMascotLogoLines(
     }
     flush();
 
-    // Spacer + OCTOCLAW text
+    // Spacer + POLYCLAW text
     const logoNode = new TextNodeRenderable({
       id: `t-${i}`,
       fg: logoColors[i],

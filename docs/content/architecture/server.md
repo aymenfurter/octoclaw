@@ -5,7 +5,7 @@ weight: 2
 
 # Server & Middleware
 
-The Octoclaw server is an aiohttp web application that hosts the admin dashboard, chat WebSocket, Bot Framework endpoint, and voice routes.
+The Polyclaw server is an aiohttp web application that hosts the admin dashboard, chat WebSocket, Bot Framework endpoint, and voice routes.
 
 ## Application Setup
 
@@ -15,8 +15,8 @@ Defined in `app/runtime/server/app.py`. The server creates an `aiohttp.web.Appli
 
 | Command | Port | Description |
 |---|---|---|
-| `octoclaw-admin` | 8000 (configurable) | Admin server + bot endpoint |
-| `octoclaw-bot` | 3978 (configurable) | Bot endpoint only |
+| `polyclaw-admin` | 8000 (configurable) | Admin server + bot endpoint |
+| `polyclaw-bot` | 3978 (configurable) | Bot endpoint only |
 
 ## Middleware Stack
 

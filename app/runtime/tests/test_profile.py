@@ -19,7 +19,7 @@ from app.runtime.state.profile import (
 class TestProfile:
     def test_load_default(self, data_dir: Path) -> None:
         profile = load_profile()
-        assert profile["name"] == "octoclaw"
+        assert profile["name"] == "polyclaw"
         assert profile["emotional_state"] == "neutral"
 
     def test_save_and_load(self, data_dir: Path) -> None:
@@ -39,7 +39,7 @@ class TestProfile:
         path = data_dir / "agent_profile.json"
         path.write_text("NOT JSON")
         profile = load_profile()
-        assert profile["name"] == "octoclaw"
+        assert profile["name"] == "polyclaw"
 
 
 class TestSkillUsage:

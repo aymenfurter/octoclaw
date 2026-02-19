@@ -5,7 +5,7 @@ weight: 3
 
 # Scheduler & Proactive Messaging
 
-Octoclaw includes a task scheduler for recurring and one-shot jobs, plus an autonomous proactive messaging system.
+Polyclaw includes a task scheduler for recurring and one-shot jobs, plus an autonomous proactive messaging system.
 
 Scheduling is a tool the agent can use during any conversation. You create schedules in natural language -- "check the GitHub Actions status every morning at 8 and message me if something failed" -- and the agent calls its `schedule_task` tool to register the job. You do not need to touch the UI or write cron expressions yourself. The web dashboard is there for you to review what is active, disable a task, or delete one.
 
@@ -23,7 +23,7 @@ Because the session has the same capabilities as a normal conversation -- web br
 
 ### How It Works
 
-The scheduler is a background loop that runs every 60 seconds, checking for due tasks. Tasks are stored in `~/.octoclaw/scheduler.json`.
+The scheduler is a background loop that runs every 60 seconds, checking for due tasks. Tasks are stored in `~/.polyclaw/scheduler.json`.
 
 ### Task Types
 
@@ -101,7 +101,7 @@ PUT /api/schedules/<id>        # Update task
 
 ## Proactive Messaging (Experimental)
 
-Most AI assistants are passive -- they sit idle until you type something. You always initiate. The assistant never thinks to check in, never notices something you should know about, never follows up on a conversation from yesterday. Octoclaw's proactive messaging changes that: the agent can reach out to you on its own when it has something worth saying.
+Most AI assistants are passive -- they sit idle until you type something. You always initiate. The assistant never thinks to check in, never notices something you should know about, never follows up on a conversation from yesterday. Polyclaw's proactive messaging changes that: the agent can reach out to you on its own when it has something worth saying.
 
 Proactive messaging is disabled by default. Enable it through the web dashboard **Proactive** page -- there is no environment variable to flip.
 
@@ -130,7 +130,7 @@ All conditions must be met:
 
 ### Preferences
 
-Stored in `~/.octoclaw/proactive.json`:
+Stored in `~/.polyclaw/proactive.json`:
 
 ```json
 {

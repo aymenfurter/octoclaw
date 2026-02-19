@@ -8,15 +8,15 @@
 import type { SlashCommand } from "./types.js";
 
 // ---------------------------------------------------------------------------
-// Block text logo: OCTOCLAW
+// Block text logo: POLYCLAW
 // ---------------------------------------------------------------------------
 
 export const LOGO_TEXT = [
-  " ███   ████  █████  ███   ████  █      ███  █   █",
-  "█   █ █        █   █   █ █     █     █   █ █   █",
-  "█   █ █        █   █   █ █     █     █████ █ █ █",
-  "█   █ █        █   █   █ █     █     █   █ █ █ █",
-  " ███   ████    █    ███   ████  █████ █   █  █ █ ",
+  "████   ███  █     █   █  ████ █      ███  █   █",
+  "█   █ █   █ █     █   █ █     █     █   █ █   █",
+  "████  █   █ █      █ █  █     █     █████ █ █ █",
+  "█     █   █ █       █   █     █     █   █ █ █ █",
+  "█      ███  █████   █    ████ █████ █   █  █ █ ",
 ] as const;
 
 /** Decorative RPG-style divider rendered below the logo. */
@@ -141,7 +141,7 @@ export const SLASH_COMMANDS: SlashCommand[] = [
 // Disclaimer persistence flag
 // ---------------------------------------------------------------------------
 
-export const DISCLAIMER_FLAG = `${process.env.HOME || "/tmp"}/.octoclaw_disclaimer_accepted`;
+export const DISCLAIMER_FLAG = `${process.env.HOME || "/tmp"}/.polyclaw_disclaimer_accepted`;
 
 // Tab labels for the main TUI (component-based mode)
 export const TAB_LABELS = [

@@ -36,7 +36,7 @@ The image includes everything the agent needs to operate:
 - **Azure CLI** (`az`) -- infrastructure provisioning and bot registration
 - **Cloudflare tunnel** (`cloudflared`) -- automatic public endpoint for webhooks
 - **Playwright MCP + Chromium** -- headless browser for web-based skills
-- **Python runtime** -- the Octoclaw server, agent, and all backend services
+- **Python runtime** -- the Polyclaw server, agent, and all backend services
 - **React dashboard** -- embedded frontend static assets
 
 ### Ports
@@ -48,7 +48,7 @@ The image includes everything the agent needs to operate:
 
 ## Persistent Data
 
-The TUI creates a Docker named volume (`octoclaw-data`) mounted at `/data` inside the container. This volume persists across container restarts and stores:
+The TUI creates a Docker named volume (`polyclaw-data`) mounted at `/data` inside the container. This volume persists across container restarts and stores:
 
 - Agent configuration and `.env` file
 - GitHub and Azure CLI authentication state
@@ -67,7 +67,7 @@ When the container starts, the entrypoint script runs the following sequence aut
 3. Loads environment variables from the persisted `.env` file
 4. Resolves any `@kv:` Key Vault secret references (if configured)
 5. Checks GitHub authentication state (token, cached session, or deferred to web UI)
-6. Starts the server (`octoclaw-admin`)
+6. Starts the server (`polyclaw-admin`)
 
 ## What Happens on Exit
 

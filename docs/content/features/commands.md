@@ -7,7 +7,7 @@ weight: 7
 
 ![Slash commands in the TUI](/screenshots/tui-slashcommands.png)
 
-Octoclaw supports an extensive set of slash commands, shared between Bot Framework channels and the WebSocket chat interface.
+Polyclaw supports an extensive set of slash commands, shared between Bot Framework channels and the WebSocket chat interface.
 
 ## Session Commands
 

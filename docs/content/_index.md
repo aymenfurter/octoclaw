@@ -1,5 +1,5 @@
 ---
-title: "Octoclaw Documentation"
+title: "Polyclaw Documentation"
 ---
 
 ## Quick Links
@@ -15,11 +15,11 @@ title: "Octoclaw Documentation"
 | [API Reference](/api/) | REST endpoints and WebSocket protocol |
 | [Deployment](/deployment/) | Docker, Azure, and CLI tools |
 
-## What is octoclaw?
+## What is polyclaw?
 
-![octoclaw web chat interface](/screenshots/web-newchat-try-asking.png)
+![polyclaw web chat interface](/screenshots/web-newchat-try-asking.png)
 
-octoclaw is an autonomous AI copilot built on the **GitHub Copilot SDK**. It messages you on Telegram, uses skills to get things done, and can even call your phone for a real-time voice conversation. Through the Copilot SDK it can write and execute code to solve problems on the spot. It comes with its own web browser that skills can drive to navigate websites and perform tasks. Under the hood the agent is powered by a cron-based scheduler, a plugin ecosystem, a self-extending skill system, and MCP servers.
+polyclaw is an autonomous AI copilot built on the **GitHub Copilot SDK**. It messages you on Telegram, uses skills to get things done, and can even call your phone for a real-time voice conversation. Through the Copilot SDK it can write and execute code to solve problems on the spot. It comes with its own web browser that skills can drive to navigate websites and perform tasks. Under the hood the agent is powered by a cron-based scheduler, a plugin ecosystem, a self-extending skill system, and MCP servers.
 
 ### Key Capabilities
 

@@ -1,5 +1,5 @@
 /**
- * API client for communicating with the octoclaw admin server.
+ * API client for communicating with the polyclaw admin server.
  *
  * Wraps fetch with authorization, base URL, and JSON parsing.
  */

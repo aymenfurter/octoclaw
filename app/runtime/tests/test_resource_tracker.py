@@ -60,14 +60,14 @@ class TestResourceTrackerDiscover:
     def test_discover_tagged_groups(self) -> None:
         tracker, az, _ = self._make_tracker()
         az.json.return_value = [
-            {"name": "octoclaw-prod", "location": "eastus", "tags": {}},
+            {"name": "polyclaw-prod", "location": "eastus", "tags": {}},
             {"name": "other-rg", "location": "westus", "tags": {}},
-            {"name": "tagged-rg", "location": "eastus", "tags": {"octoclaw_deploy": "dep-1"}},
+            {"name": "tagged-rg", "location": "eastus", "tags": {"polyclaw_deploy": "dep-1"}},
         ]
         result = tracker.discover_tagged_resource_groups()
         assert len(result) == 2
         names = {g.name for g in result}
-        assert "octoclaw-prod" in names
+        assert "polyclaw-prod" in names
         assert "tagged-rg" in names
         assert "other-rg" not in names
 
@@ -75,7 +75,7 @@ class TestResourceTrackerDiscover:
         tracker, az, _ = self._make_tracker()
         az.json.return_value = [
             {"id": "/sub/rg/res1", "name": "res1", "type": "Microsoft.Web/sites",
-             "location": "eastus", "tags": {"octoclaw_deploy": "dep-1"}},
+             "location": "eastus", "tags": {"polyclaw_deploy": "dep-1"}},
         ]
         result = tracker.discover_resources_in_group("myrg")
         assert len(result) == 1
@@ -88,16 +88,16 @@ class TestResourceTrackerDiscover:
         result = tracker.discover_resources_in_group("rg")
         assert result == []
 
-    def test_discover_all_octoclaw_resources(self) -> None:
+    def test_discover_all_polyclaw_resources(self) -> None:
         tracker, az, _ = self._make_tracker()
         az.json.return_value = [
             {
                 "id": "/subscriptions/s/resourceGroups/myrg/providers/Microsoft.Web/sites/app1",
                 "name": "app1", "type": "Microsoft.Web/sites",
-                "location": "eastus", "tags": {"octoclaw_deploy": "dep-1"},
+                "location": "eastus", "tags": {"polyclaw_deploy": "dep-1"},
             }
         ]
-        result = tracker.discover_all_octoclaw_resources()
+        result = tracker.discover_all_polyclaw_resources()
         assert len(result) == 1
         assert result[0].resource_group == "myrg"
 
@@ -145,12 +145,12 @@ class TestResourceTrackerAudit:
         def json_side_effect(*args, **kwargs):
             cmd = " ".join(args)
             if "group list" in cmd:
-                return [{"name": "octoclaw-rg", "location": "eastus",
-                         "tags": {"octoclaw_deploy": "octocl-abc123"}}]
+                return [{"name": "polyclaw-rg", "location": "eastus",
+                         "tags": {"polyclaw_deploy": "octocl-abc123"}}]
             if "resource list" in cmd:
                 if "--resource-group" in cmd:
                     return [{"id": "/res1", "name": "app", "type": "Web",
-                             "location": "eastus", "tags": {"octoclaw_deploy": "octocl-abc123"}}]
+                             "location": "eastus", "tags": {"polyclaw_deploy": "octocl-abc123"}}]
                 return []
             return []
 

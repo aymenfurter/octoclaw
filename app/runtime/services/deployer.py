@@ -17,9 +17,9 @@ logger = logging.getLogger(__name__)
 
 @dataclass
 class DeployRequest:
-    resource_group: str = "octoclaw-rg"
+    resource_group: str = "polyclaw-rg"
     location: str = "eastus"
-    display_name: str = "octoclaw"
+    display_name: str = "polyclaw"
     bot_handle: str = ""
     endpoint_url: str = ""  # live tunnel URL; avoids reading stale .env
 
@@ -139,7 +139,7 @@ class BotDeployer:
         if self._deploy_store:
             rec = self._deploy_store.current_local()
             if rec:
-                tag_args = ["--tags", f"octoclaw_deploy={rec.tag}"]
+                tag_args = ["--tags", f"polyclaw_deploy={rec.tag}"]
         result = self._az.json("group", "create", "--name", name, "--location", location, *tag_args)
         if result:
             steps.append({"step": "resource_group", "status": "ok", "name": name})
@@ -224,4 +224,4 @@ class BotDeployer:
     @staticmethod
     def _generate_handle() -> str:
         ts = hex(int(time.time()) % 0xFFFF)[2:]
-        return f"octoclaw-{secrets.token_hex(4)}-{ts}"
+        return f"polyclaw-{secrets.token_hex(4)}-{ts}"

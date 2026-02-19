@@ -3,7 +3,7 @@ title: "Getting Started"
 weight: 10
 ---
 
-Octoclaw ships with an interactive **Terminal UI (TUI)** that handles the entire setup lifecycle. The TUI guides you through building, deploying, and configuring Octoclaw -- whether you are running locally with Docker or deploying to Azure Container Apps.
+Polyclaw ships with an interactive **Terminal UI (TUI)** that handles the entire setup lifecycle. The TUI guides you through building, deploying, and configuring Polyclaw -- whether you are running locally with Docker or deploying to Azure Container Apps.
 
 ## How It Works
 
@@ -25,7 +25,7 @@ After selecting a target, the TUI handles the build, deploy, health check, and t
 ## Project Structure
 
 ```
-octoclaw/
+polyclaw/
   scripts/
     run-tui.sh         # Entry point -- launches the TUI
   app/
@@ -44,4 +44,4 @@ octoclaw/
   skills/              # Built-in skill definitions
 ```
 
-Continue to the [Quickstart](/getting-started/quickstart/) to get Octoclaw running in minutes.
+Continue to the [Quickstart](/getting-started/quickstart/) to get Polyclaw running in minutes.

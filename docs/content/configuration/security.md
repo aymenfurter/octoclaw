@@ -5,7 +5,7 @@ weight: 2
 
 # Security & Authentication
 
-Octoclaw implements multiple layers of security across its endpoints.
+Polyclaw implements multiple layers of security across its endpoints.
 
 ## Admin API Authentication
 

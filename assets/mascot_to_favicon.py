@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Convert the octoclaw CLI mascot pixel grid (from cli/src/ui.ts)
+Convert the polyclaw CLI mascot pixel grid (from cli/src/ui.ts)
 into a favicon (.ico) with standard multi-resolution layers and transparency.
 
 Generates an ICO file containing 16x16, 32x32, and 48x48 layers,
@@ -100,7 +100,7 @@ def render_favicon(output: str | Path) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Render octoclaw mascot as a multi-resolution favicon"
+        description="Render polyclaw mascot as a multi-resolution favicon"
     )
     parser.add_argument(
         "--output",

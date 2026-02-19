@@ -5,7 +5,7 @@ weight: 2
 
 # Realtime Voice / Phone Calls
 
-Octoclaw can place and receive real phone calls. During a call, a dedicated voice AI persona handles the conversation in real time while delegating tasks back to the main agent -- browsing the web, searching memory, running code, or anything else the text agent can do.
+Polyclaw can place and receive real phone calls. During a call, a dedicated voice AI persona handles the conversation in real time while delegating tasks back to the main agent -- browsing the web, searching memory, running code, or anything else the text agent can do.
 
 The stack is Azure Communication Services (ACS) for telephony and the Azure OpenAI Realtime API for speech.
 
@@ -36,7 +36,7 @@ The agent can only call a single pre-configured number stored in `VOICE_TARGET_N
 
 ## Voice Persona
 
-The voice session uses a separate system prompt optimized for spoken conversation. The voice AI identifies itself as octoclaw, never reveals that it is a separate model or layer, and speaks naturally. When the caller asks a question or requests a task, the voice AI delegates to the main agent behind the scenes and relays the result conversationally.
+The voice session uses a separate system prompt optimized for spoken conversation. The voice AI identifies itself as polyclaw, never reveals that it is a separate model or layer, and speaks naturally. When the caller asks a question or requests a task, the voice AI delegates to the main agent behind the scenes and relays the result conversationally.
 
 ## Configuration
 
@@ -44,7 +44,7 @@ Voice is provisioned through the TUI or web dashboard. The required resources ar
 
 - An Azure Communication Services resource with a purchased phone number (the caller ID).
 - An Azure OpenAI resource with a Realtime model deployment (e.g. `gpt-4o-realtime-preview`).
-- Network connectivity between ACS and the octoclaw server (via tunnel or public endpoint).
+- Network connectivity between ACS and the polyclaw server (via tunnel or public endpoint).
 
 ![Voice call configuration](/screenshots/web-infra-voice.png)
 

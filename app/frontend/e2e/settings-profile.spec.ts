@@ -42,7 +42,7 @@ test.describe('Settings page', () => {
         return route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ status: 'ok' }) })
       }
       return route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({
-        COPILOT_MODEL: 'gpt-4o', AGENT_NAME: 'Octoclaw', SYSTEM_PROMPT: 'You are Octoclaw.',
+        COPILOT_MODEL: 'gpt-4o', AGENT_NAME: 'Polyclaw', SYSTEM_PROMPT: 'You are Polyclaw.',
       }) })
     })
     await page.goto('/settings')
@@ -107,7 +107,7 @@ test.describe('Profile page', () => {
 
   test('shows agent name and personality', async ({ page }) => {
     await page.goto('/profile')
-    await expect(page.getByText('Octoclaw Agent')).toBeVisible()
+    await expect(page.getByText('Polyclaw Agent')).toBeVisible()
     await expect(page.getByText('Helpful and proactive assistant')).toBeVisible()
   })
 
@@ -120,7 +120,7 @@ test.describe('Profile page', () => {
     await page.goto('/profile')
     await page.getByRole('button', { name: 'Edit' }).click()
     await expect(page.locator('.form')).toBeVisible()
-    await expect(page.locator('input.input').first()).toHaveValue('Octoclaw Agent')
+    await expect(page.locator('input.input').first()).toHaveValue('Polyclaw Agent')
   })
 
   test('save button sends PUT', async ({ page }) => {
@@ -131,7 +131,7 @@ test.describe('Profile page', () => {
         return route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ status: 'ok' }) })
       }
       return route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({
-        name: 'Octoclaw Agent', personality: 'Helpful and proactive assistant',
+        name: 'Polyclaw Agent', personality: 'Helpful and proactive assistant',
         instructions: 'You are a coding assistant.', avatar_url: null,
         contributions: [{ date: '2026-02-14', user: 3, scheduled: 1 }],
       }) })

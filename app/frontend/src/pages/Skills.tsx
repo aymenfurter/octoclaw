@@ -14,7 +14,7 @@ const ORIGIN_LABEL: Record<string, string> = {
 }
 
 const ORIGIN_TOOLTIP: Record<string, string> = {
-  'built-in':      'This skill is included with octoclaw',
+  'built-in':      'This skill is included with polyclaw',
   'marketplace':   'Installed from the skills marketplace',
   'plugin':        'Installed as part of a plugin',
   'agent-created': 'This skill was created by your agent',

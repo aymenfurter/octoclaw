@@ -34,7 +34,7 @@ export default function TopBar({ onTogglePanel }: Props) {
     return () => document.removeEventListener('mousedown', handler)
   }, [])
 
-  const agentName = profile?.name || 'octoclaw'
+  const agentName = profile?.name || 'polyclaw'
 
   const go = (path: string) => {
     navigate(path)
@@ -48,7 +48,7 @@ export default function TopBar({ onTogglePanel }: Props) {
           <IconPanelLeft />
         </button>
         <button className="topbar__brand" onClick={() => navigate('/chat')}>
-          <img src="/headertext.png" alt="octoclaw" className="topbar__wordmark" />
+          <img src="/headertext.png" alt="polyclaw" className="topbar__wordmark" />
         </button>
       </div>
       <div className="topbar__right" ref={ref}>

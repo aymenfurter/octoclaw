@@ -1,5 +1,5 @@
 /**
- * Octoclaw TUI -- entry point.
+ * Polyclaw TUI -- entry point.
  *
  * Admin mode: launches the interactive TUI (disclaimer -> target picker
  *             -> deploy lifecycle & chat).
@@ -24,7 +24,7 @@ import { pickDeployTarget } from "./ui/target-picker.js";
 // -----------------------------------------------------------------------
 
 function usage(): void {
-  console.log("Usage: octoclaw-cli [admin|bot]");
+  console.log("Usage: polyclaw-cli [admin|bot]");
   console.log("");
   console.log("  admin  - TUI with status dashboard and chat (default)");
   console.log("  bot    - Bot Framework server only (headless)");
@@ -62,7 +62,7 @@ async function main(): Promise<void> {
   }
 
   // ---- Bot-only mode (headless) -----------------------------------------
-  console.log("Building octoclaw v3...");
+  console.log("Building polyclaw v3...");
   console.log("");
 
   const buildOk = await buildImage();
@@ -71,7 +71,7 @@ async function main(): Promise<void> {
     process.exit(1);
   }
 
-  console.log("Starting octoclaw...");
+  console.log("Starting polyclaw...");
   let containerId: string;
   try {
     containerId = await startContainer(adminPort, botPort, "bot");

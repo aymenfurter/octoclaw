@@ -74,7 +74,7 @@ const MARKETPLACE_SKILLS = {
 
 const PLUGINS = {
   plugins: [
-    { id: 'github-status', name: 'GitHub Status', version: '1.0.0', description: 'Monitor GitHub service status', icon: 'star', enabled: true, skill_count: 1, source: 'builtin', author: 'octoclaw', homepage: 'https://example.com', setup_skill: false, setup_completed: false, skills: ['gh-status'] },
+    { id: 'github-status', name: 'GitHub Status', version: '1.0.0', description: 'Monitor GitHub service status', icon: 'star', enabled: true, skill_count: 1, source: 'builtin', author: 'polyclaw', homepage: 'https://example.com', setup_skill: false, setup_completed: false, skills: ['gh-status'] },
     { id: 'wikipedia-lookup', name: 'Wikipedia Lookup', version: '0.2.0', description: 'Search Wikipedia articles', icon: 'brain', enabled: false, skill_count: 1, source: 'user', author: null, homepage: null, setup_skill: false, setup_completed: false, skills: ['wiki'] },
   ],
 }
@@ -148,24 +148,24 @@ const MODELS = {
   current: 'gpt-4o',
 }
 
-const CONFIG = { COPILOT_MODEL: 'gpt-4o', AGENT_NAME: 'Octoclaw', SYSTEM_PROMPT: 'You are Octoclaw.' }
+const CONFIG = { COPILOT_MODEL: 'gpt-4o', AGENT_NAME: 'Polyclaw', SYSTEM_PROMPT: 'You are Polyclaw.' }
 
 const SANDBOX = {
   enabled: true, sync_data: true, session_pool_endpoint: 'https://sandbox.example.com',
-  is_provisioned: true, pool_name: 'octoclaw-pool', resource_group: 'rg-sandbox', location: 'eastus',
+  is_provisioned: true, pool_name: 'polyclaw-pool', resource_group: 'rg-sandbox', location: 'eastus',
   whitelist: ['requests', 'pandas'],
 }
 
 const DEPLOYMENTS = [{
   deploy_id: 'dep-001', tag: 'v3.0.0', kind: 'aca', status: 'active',
   resource_count: 6, created_at: '2026-02-10T12:00:00Z', updated_at: '2026-02-15T08:00:00Z',
-  resource_groups: ['rg-octoclaw-prod'],
-  resources: [{ resource_type: 'ContainerApp', resource_name: 'octoclaw-app', resource_group: 'rg-octoclaw-prod', purpose: 'main' }],
+  resource_groups: ['rg-polyclaw-prod'],
+  resources: [{ resource_type: 'ContainerApp', resource_name: 'polyclaw-app', resource_group: 'rg-polyclaw-prod', purpose: 'main' }],
 }]
 
 const FOUNDRY_IQ_CONFIG = {
   enabled: true, search_endpoint: 'https://search.example.com', search_api_key: '****',
-  index_name: 'octoclaw-memories', embedding_endpoint: 'https://embedding.example.com',
+  index_name: 'polyclaw-memories', embedding_endpoint: 'https://embedding.example.com',
   embedding_api_key: '****', embedding_model: 'text-embedding-3-large', embedding_dimensions: 3072,
   index_schedule: 'daily', provisioned: false, last_indexed_at: '2026-02-14T12:00:00Z',
 }
@@ -281,7 +281,7 @@ function json(res: ServerResponse, data: unknown, status = 200) {
 
 export default function mockServerPlugin(): Plugin {
   return {
-    name: 'octoclaw-mock-server',
+    name: 'polyclaw-mock-server',
     configureServer(server: ViteDevServer) {
       server.middlewares.use((req: IncomingMessage, res: ServerResponse, next: () => void) => {
         const url = req.url?.split('?')[0] || ''
