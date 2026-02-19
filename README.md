@@ -1,4 +1,4 @@
-> **Note:** This project is not affiliated with or related to [polyclaw.ai](https://octoclaw.ai). The naming overlap is coincidental and was only recently brought to my attention.
+> **Note:** This project is not affiliated with or related to [octoclaw.ai](https://octoclaw.ai). The naming overlap is coincidental and was only recently brought to my attention.
 
 <p align="center">  
   <img src="assets/logo.png" alt="Polyclaw" width="120" />
@@ -50,7 +50,7 @@ Polyclaw is an autonomous AI copilot built on the **GitHub Copilot SDK**. It giv
 ## Intro
 <p align="center">
   
-https://github.com/user-attachments/assets/668ace7d-c07c-4bfd-92bd-e0d182d44343
+https://github.com/user-attachments/assets/c218bd9d-b313-40d7-8e9f-6081a62b3de2
 
 </p>
 
