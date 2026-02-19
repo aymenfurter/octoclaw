@@ -1,3 +1,5 @@
+> **Note:** This project is not affiliated with or related to [octoclaw.ai](https://octoclaw.ai). The naming overlap is coincidental and was only recently brought to my attention.
+
 <p align="center">  
   <img src="assets/logo.png" alt="Octoclaw" width="120" />
 </p>
