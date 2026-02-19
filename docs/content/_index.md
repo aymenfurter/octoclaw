@@ -9,6 +9,7 @@ title: "Octoclaw Documentation"
 | [Getting Started](/getting-started/) | Installation, prerequisites, and first run |
 | [Architecture](/architecture/) | System design, components, and data flow |
 | [Configuration](/configuration/) | Environment variables and secrets management |
+| [Security, Governance & RAI](/responsible-ai/) | Responsible AI principles, security controls, governance |
 | [Plugins & MCP](/plugins/) | Model Context Protocol servers and plugin system |
 | [Skills](/skills/) | Skill authoring, marketplace, and built-in skills |
 | [API Reference](/api/) | REST endpoints and WebSocket protocol |
